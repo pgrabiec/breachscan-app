@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Machine} from '../machine';
-import { MACHINES } from '../mock-machines';
+import { MachineService } from '../machine.service';
 
 @Component({
   selector: 'app-machines',
@@ -8,22 +8,21 @@ import { MACHINES } from '../mock-machines';
   styleUrls: ['./machines.component.css']
 })
 export class MachinesComponent implements OnInit {
-  machine: Machine = {
-    address: '192.168.0.1',
-    monitored: false,
-    name: 'zk'
-  };
-
-  machines: Machine[] = MACHINES;
-
+  machines: Machine[];
   selectedMachine: Machine;
 
-  constructor() { }
+  constructor(private machineService: MachineService) { }
 
   ngOnInit() {
+    this.getMachines();
   }
 
   onSelect(machine: Machine) {
     this.selectedMachine = machine;
+  }
+
+  getMachines(): void {
+    this.machineService.getMachines()
+      .subscribe(machines => this.machines = machines);
   }
 }

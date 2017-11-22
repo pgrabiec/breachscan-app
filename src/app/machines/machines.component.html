@@ -8,15 +8,4 @@
     <span class="badge">{{machine.address}}</span> {{machine.name}}
   </li>
 </ul>
-
-<div *ngIf="selectedMachine">
-  <h2>{{ selectedMachine.address }} Details</h2>
-  <div><span>address: </span>{{selectedMachine.address}}</div>
-  <div><span>name: </span>{{selectedMachine.name}}</div>
-  <div><span>monitored: </span>{{selectedMachine.monitored}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedMachine.name" placeholder="name">
-    </label>
-  </div>
-</div>
+<app-machine-detail [machine]="selectedMachine"></app-machine-detail>

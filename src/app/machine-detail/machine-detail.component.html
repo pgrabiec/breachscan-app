@@ -1,0 +1,13 @@
+<div *ngIf="machine">
+
+  <h2>{{ machine.address }} Details</h2>
+  <div><span>address: </span>{{machine.address}}</div>
+  <div><span>name: </span>{{machine.name}}</div>
+  <div><span>monitored: </span>{{machine.monitored}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="machine.name" placeholder="name">
+    </label>
+  </div>
+
+</div>
