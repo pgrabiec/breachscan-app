@@ -2,12 +2,33 @@
   <button (click)="goBack()">go back</button>
   <h2>{{ machine.address }} Details</h2>
   <div><span>address: </span>{{machine.address}}</div>
-  <div><span>name: </span>{{machine.name}}</div>
-  <div><span>monitored: </span>{{machine.monitored}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="machine.name" placeholder="name">
-    </label>
+  <div><span>monitoring active: </span>{{machine.monitoring.active}}</div>
+  <div *ngIf="containers">
+    <div><span>Containers ({{containers.length}}):</span></div>
+    <div>
+      <ul class="container">
+        <li *ngFor="let machineContainer of containers">
+          <a routerLink="/machines/{{machine.address}}/containers/{{machineContainer.id}}">
+            <div [ngSwitch]="machineContainer?.monitoring.active">
+              <span *ngSwitchCase="false">
+                <span class='badge'>{{machineContainer.id}}</span>
+                <span> {{machineContainer.monitoring.active}}</span>
+              </span>
+              <span *ngSwitchCase="true">
+                <span class='badge-active'>{{machineContainer.id}}</span>
+                <span> {{machineContainer.monitoring.active}}</span>
+              </span>
+            </div>
+
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
+  <!--<div>-->
+    <!--<label>name:-->
+      <!--<input [(ngModel)]="machine.address" placeholder="address">-->
+    <!--</label>-->
+  <!--</div>-->
 
 </div>

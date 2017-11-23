@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Machine} from '../machine';
-import { MachineService } from '../machine.service';
+import {Component, OnInit} from '@angular/core';
+import {MachineService} from '../services/machine-service/machine.service';
 
 @Component({
   selector: 'app-machines',
@@ -8,8 +7,7 @@ import { MachineService } from '../machine.service';
   styleUrls: ['./machines.component.css']
 })
 export class MachinesComponent implements OnInit {
-  machines: Machine[];
-  selectedMachine: Machine;
+  machineAddresses: string[];
 
   constructor(private machineService: MachineService) { }
 
@@ -17,12 +15,8 @@ export class MachinesComponent implements OnInit {
     this.getMachines();
   }
 
-  onSelect(machine: Machine) {
-    this.selectedMachine = machine;
-  }
-
   getMachines(): void {
-    this.machineService.getMachines()
-      .subscribe(machines => this.machines = machines);
+    this.machineService.getMachineAddresses()
+      .subscribe(machines => this.machineAddresses = machines);
   }
 }

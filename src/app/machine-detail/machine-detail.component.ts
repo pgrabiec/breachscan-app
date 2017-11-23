@@ -1,8 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {Machine} from '../machine';
+import {Component, OnInit} from '@angular/core';
+import {Machine} from '../model/machine/machine';
 import {ActivatedRoute} from '@angular/router';
-import {MachineService} from '../machine.service';
+import {MachineService} from '../services/machine-service/machine.service';
 import {Location} from '@angular/common';
+import {Container} from '../model/machine/container/container';
 
 @Component({
   selector: 'app-machine-detail',
@@ -10,7 +11,8 @@ import {Location} from '@angular/common';
   styleUrls: ['./machine-detail.component.css']
 })
 export class MachineDetailComponent implements OnInit {
-  @Input() machine: Machine;
+  machine: Machine;
+  containers: Container[];
 
   constructor(private route: ActivatedRoute,
               private machineService: MachineService,
@@ -25,7 +27,13 @@ export class MachineDetailComponent implements OnInit {
   getMachine(): void {
     const address = this.route.snapshot.paramMap.get('address');
     this.machineService.getMachine(address)
-      .subscribe(machine => this.machine = machine);
+      .subscribe(machine => {
+        console.log(typeof machine.containers);
+        this.machine = machine;
+        this.containers = Array.from(new Map(Object.entries(machine.containers)).values());
+        console.log(this.machine);
+        console.log(this.containers);
+      });
   }
 
   goBack(): void {

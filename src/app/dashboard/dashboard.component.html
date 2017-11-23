@@ -1,8 +1,8 @@
 <h3>Top Machines</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let machine of machines" class="col-1-4"  routerLink="/machines/{{machine.address}}">
+  <a *ngFor="let machineAddress of machineAddresses" class="col-1-4" routerLink="/machines/{{machineAddress}}">
     <div class="module machine">
-      <h4>{{machine.name}}</h4>
+      <h4>{{machineAddress}}</h4>
     </div>
   </a>
 </div>
