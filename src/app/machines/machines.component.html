@@ -1,11 +1,9 @@
 <h2>All machines</h2>
 <ul class="machines">
-  <li
-    *ngFor="let machine of machines"
-    (click)="onSelect(machine)"
-    [class.selected]="machine === selectedMachine"
-  >
-    <span class="badge">{{machine.address}}</span> {{machine.name}}
+  <li *ngFor="let machine of machines">
+    <a routerLink="/machines/{{machine.address}}">
+      <span class="badge">{{machine.address}}</span> {{machine.name}}
+    </a>
   </li>
 </ul>
-<app-machine-detail [machine]="selectedMachine"></app-machine-detail>
+<!--<app-machine-detail [machine]="selectedMachine"></app-machine-detail>-->

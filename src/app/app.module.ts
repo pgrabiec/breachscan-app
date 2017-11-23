@@ -8,6 +8,8 @@ import { MachineDetailComponent } from './machine-detail/machine-detail.componen
 import {MachineService} from './machine.service';
 import { MessageService } from './message.service';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -15,11 +17,13 @@ import { MessagesComponent } from './messages/messages.component';
     AppComponent,
     MachinesComponent,
     MachineDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [ MachineService, MessageService ],
   bootstrap: [AppComponent]
