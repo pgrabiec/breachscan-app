@@ -11,6 +11,11 @@ import {MessagesComponent} from './messages/messages.component';
 import {AppRoutingModule} from './/app-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ContainerDetailComponent} from './container-detail/container-detail.component';
+import { ContainerService } from './services/container-service/container.service';
+import { MonitoringService } from './services/monitoring-service/monitoring.service';
+import { ErrorHandlerService } from './services/error-handler/error-handler.service';
+import { MonitoringConfBriefComponent } from './monitoring-conf-brief/monitoring-conf-brief.component';
 
 
 @NgModule({
@@ -19,7 +24,9 @@ import {HttpClientModule} from '@angular/common/http';
     MachinesComponent,
     MachineDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContainerDetailComponent,
+    MonitoringConfBriefComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +34,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [MachineService, MessageService],
+  providers: [MachineService, MessageService, ContainerService, MonitoringService, ErrorHandlerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

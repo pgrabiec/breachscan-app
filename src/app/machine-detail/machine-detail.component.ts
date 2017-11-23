@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {MachineService} from '../services/machine-service/machine.service';
 import {Location} from '@angular/common';
 import {Container} from '../model/machine/container/container';
+import {MonitoringService} from '../services/monitoring-service/monitoring.service';
 
 @Component({
   selector: 'app-machine-detail',
@@ -16,7 +17,8 @@ export class MachineDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private machineService: MachineService,
-              private location: Location) {
+              private location: Location,
+              private monitoringService: MonitoringService) {
 
   }
 
@@ -28,7 +30,6 @@ export class MachineDetailComponent implements OnInit {
     const address = this.route.snapshot.paramMap.get('address');
     this.machineService.getMachine(address)
       .subscribe(machine => {
-        console.log(typeof machine.containers);
         this.machine = machine;
         this.containers = Array.from(new Map(Object.entries(machine.containers)).values());
         console.log(this.machine);
@@ -38,5 +39,15 @@ export class MachineDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  stopMonitoring(): void {
+    this.monitoringService.updateMonitoring(this.machine, false)
+      .subscribe((_) => this.getMachine());
+  }
+
+  startMonitoring() {
+    this.monitoringService.updateMonitoring(this.machine, true)
+      .subscribe((_) => this.getMachine());
   }
 }

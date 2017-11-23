@@ -2,7 +2,12 @@
   <button (click)="goBack()">go back</button>
   <h2>{{ machine.address }} Details</h2>
   <div><span>address: </span>{{machine.address}}</div>
-  <div><span>monitoring active: </span>{{machine.monitoring.active}}</div>
+  <app-monitoring-conf-brief [monitoringConf]="machine.monitoring"></app-monitoring-conf-brief>
+  <!--<div><span>monitoring active: </span>{{machine.monitoring.active}}</div>-->
+  <div [ngSwitch]="machine.monitoring.active">
+    <button *ngSwitchCase="true" (click)="stopMonitoring()">stop monitoring</button>
+    <button *ngSwitchCase="false" (click)="startMonitoring()">monitor</button>
+  </div>
   <div *ngIf="containers">
     <div><span>Containers ({{containers.length}}):</span></div>
     <div>
@@ -19,16 +24,9 @@
                 <span> {{machineContainer.monitoring.active}}</span>
               </span>
             </div>
-
           </a>
         </li>
       </ul>
     </div>
   </div>
-  <!--<div>-->
-    <!--<label>name:-->
-      <!--<input [(ngModel)]="machine.address" placeholder="address">-->
-    <!--</label>-->
-  <!--</div>-->
-
 </div>

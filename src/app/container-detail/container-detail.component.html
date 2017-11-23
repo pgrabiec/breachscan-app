@@ -1,0 +1,8 @@
+<div *ngIf="container">
+  <button (click)="goBack()">go back</button>
+  <h2>Container {{container.id}} Details</h2>
+  <app-monitoring-conf-brief [monitoringConf]="container.monitoring"></app-monitoring-conf-brief>
+  <!--<div>-->
+    <!--<div><span>monitoring active: </span>{{container.monitoring.active}}</div>-->
+  <!--</div>-->
+</div>
