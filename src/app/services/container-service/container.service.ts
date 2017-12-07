@@ -4,8 +4,8 @@ import {HttpClient} from '@angular/common/http';
 import {MessageService} from '../message-service/message.service';
 import {Observable} from 'rxjs/Observable';
 import {catchError} from 'rxjs/operators';
-import {Container} from '../../model/machine/container/container';
 import {ErrorHandlerService} from '../error-handler/error-handler.service';
+import Container = Breachscan.Container;
 
 @Injectable()
 export class ContainerService {

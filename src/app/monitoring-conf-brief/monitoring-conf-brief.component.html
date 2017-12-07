@@ -1,9 +1,0 @@
-<div *ngIf="monitoringConf">
-  <h3>Monitoring configuration details</h3>
-  <div>
-    <div [ngSwitch]="monitoringConf.active">
-      <div *ngSwitchCase="true"><span class="monitoring-active">monitoring active</span></div>
-      <div *ngSwitchCase="false"><span class="monitoring-not-active">monitoring not active</span></div>
-    </div>
-  </div>
-</div>

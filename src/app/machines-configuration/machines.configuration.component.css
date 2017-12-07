@@ -1,11 +1,15 @@
-/* HeroesComponent's private CSS styles */
-.machines {
+h1 {
+  text-align: center;
+}
+
+.reactive-list {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
 }
-.machines li {
+
+.reactive-list li {
   position: relative;
   cursor: pointer;
   background-color: #EEE;
@@ -15,13 +19,13 @@
   border-radius: 4px;
 }
 
-.machines li:hover {
+.reactive-list li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
 
-.machines a {
+.reactive-list li {
   color: #888;
   text-decoration: none;
   position: relative;
@@ -29,11 +33,11 @@
   width: 250px;
 }
 
-.machines a:hover {
+.reactive-list li:hover {
   color:#607D8B;
 }
 
-.machines .badge {
+.reactive-list li {
   display: inline-block;
   font-size: small;
   color: white;

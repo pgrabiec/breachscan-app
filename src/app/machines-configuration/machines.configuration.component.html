@@ -1,0 +1,14 @@
+<h1>All machines</h1>
+<ul class="horizontal-list">
+  <li *ngFor="let machineId of machineIds">
+    <app-id
+      routerLink="/{{machinesRoute}}/{{machineId.address}}"
+      [id]="machineId.address"
+      [name]="machineId.name">
+    </app-id>
+    <!--<a routerLink="{{machinesRoute}}/{{machineId.address}}">-->
+      <!--<span class="badge">{{machineId.address}}</span>-->
+      <!--{{machineId.name}}-->
+    <!--</a>-->
+  </li>
+</ul>

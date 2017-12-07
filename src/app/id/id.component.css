@@ -1,0 +1,17 @@
+#id {
+  background: #287bcc;
+  display: inline;
+  padding: 10px;
+}
+
+#name {
+  background: #6e6e75;
+  display: inline;
+  padding: 10px;
+}
+
+#container {
+  border: #050075 solid 3px;
+  display: inline-flex;
+  margin: 5px;
+}

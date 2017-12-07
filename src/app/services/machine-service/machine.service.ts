@@ -1,27 +1,29 @@
 import {Injectable} from '@angular/core';
-import {Machine} from '../../model/machine/machine';
 
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import {ErrorHandlerService} from '../error-handler/error-handler.service';
+import {ApiRouting} from '../../api-routing';
+import MachineId = Breachscan.MachineId;
+import Machine = Breachscan.Machine;
 
 @Injectable()
 export class MachineService {
-  private machinesUrl = environment.baseUri + '/machines';  // URL to web api
+  private machinesUrl = environment.baseUri + ApiRouting.confMachines;  // URL to web api
 
   constructor(private http: HttpClient,
               private errorHandler: ErrorHandlerService) {
   }
 
-  getMachineAddresses(): Observable<string[]> {
-    const result = this.http.get<string[]>(this.machinesUrl)
+  getMachineIds(): Observable<MachineId[]> {
+    const result = this.http.get<MachineId[]>(this.machinesUrl)
       .pipe(
-        catchError(this.errorHandler.handleError('getMachineAddresses', []))
+        catchError(this.errorHandler.handleError('getMachineIds', []))
       );
 
-    result.subscribe((addresses) => this.errorHandler.log('MachineService: fetched machines'));
+    result.subscribe((addresses) => this.errorHandler.log('MachineService: fetched machineIds'));
 
     return result;
   }
