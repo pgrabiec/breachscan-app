@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import Machine = Breachscan.Machine;
 import {AppRouting} from '../app-routing';
 import {MachineService} from '../services/machine-service/machine.service';
+import {Breachscan} from '../model/breachscan-api';
+import Machine = Breachscan.Machine;
 
 @Component({
   selector: 'app-machine-configuration',

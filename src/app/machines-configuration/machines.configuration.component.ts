@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MachineService} from '../services/machine-service/machine.service';
-import MachineId = Breachscan.MachineId;
 import {AppRouting} from '../app-routing';
+import {ToastService, ToastType} from '../services/toast/toast.service';
+import {Breachscan} from '../model/breachscan-api';
+import MachineId = Breachscan.MachineId;
 
 @Component({
   selector: 'app-machines-configuration',
@@ -11,8 +13,11 @@ import {AppRouting} from '../app-routing';
 export class MachinesConfigurationComponent implements OnInit {
   machineIds: MachineId[];
   machinesRoute = AppRouting.confMachines;
+  addMachineRoute = AppRouting.confAddMachine;
 
-  constructor(private machineService: MachineService) { }
+  constructor(private machineService: MachineService,
+              private toastService: ToastService) {
+  }
 
   ngOnInit() {
     this.getMachines();
@@ -20,6 +25,18 @@ export class MachinesConfigurationComponent implements OnInit {
 
   getMachines(): void {
     this.machineService.getMachineIds()
-      .subscribe(machineIds => this.machineIds = machineIds);
+      .subscribe(machineIds => {
+        this.machineIds = machineIds;
+      });
+  }
+
+  deleteMachine(machineAddress: string) {
+    this.machineService.deleteMachine(machineAddress)
+      .subscribe((response) => {
+        this.getMachines();
+        if (response != null) {
+          this.toastService.popToast(ToastType.INFO, 'Deleted machine ', machineAddress);
+        }
+      });
   }
 }

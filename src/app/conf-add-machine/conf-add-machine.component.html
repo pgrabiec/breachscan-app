@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Add new machine</h1>
+  <form>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input #address type="text" id="address" required>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input #name type="text" id="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input #description type="text" id="description">
+    </div>
+
+    <div id="save" class="form-group-save" (click)="saveMachine(address.value, name.value, description.value)">Save</div>
+
+  </form>
+</div>

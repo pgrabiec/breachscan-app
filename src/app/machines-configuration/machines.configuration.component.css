@@ -2,54 +2,37 @@ h1 {
   text-align: center;
 }
 
-.reactive-list {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
+#delete {
+  height: inherit;
+  background: black;
+  line-height: 1.1em;
+  display: inline-flex;
+  color: var(--text-color-0);
+
 }
 
-.reactive-list li {
-  position: relative;
-  cursor: pointer;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
-}
-
-.reactive-list li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-
-.reactive-list li {
-  color: #888;
-  text-decoration: none;
-  position: relative;
+#header {
+  float: left;
+  text-align: center;
   display: block;
-  width: 250px;
 }
 
-.reactive-list li:hover {
-  color:#607D8B;
+#addMachine {
+  float: left;
+  margin-left: auto;
+  position: absolute;
+  right: 10px;
+  background: var(--color-2);
+  color: var(--text-color-2);
+  padding: 20px;
 }
 
-.reactive-list li {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  min-width: 16px;
-  text-align: right;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+#machine {
+  margin: 5px;
+}
+
+.material-icons {
+  font-size: 2.4em;  /* Preferred icon size */
+  color: red;
+
 }

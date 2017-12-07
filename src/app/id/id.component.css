@@ -1,17 +1,18 @@
 #id {
-  background: #287bcc;
+  background: var(--color-1);
+  color: var(--text-color-1);
   display: inline;
   padding: 10px;
 }
 
 #name {
-  background: #6e6e75;
+  background: var(--color-3);
+  color: var(--text-color-3);
   display: inline;
   padding: 10px;
 }
 
 #container {
-  border: #050075 solid 3px;
+  border: var(--color-0) solid 3px;
   display: inline-flex;
-  margin: 5px;
 }

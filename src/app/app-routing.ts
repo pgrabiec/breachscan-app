@@ -21,6 +21,7 @@ export class AppRouting {
   static home = 'home';
   static configuration = 'configuration';
   static confMachines = AppRouting.configuration + '/machines';
+  static confAddMachine = AppRouting.confMachines + '/add';
   static confMachineAddress = AppRouting.confMachines + '/' + AppRouting.machineAddressPlaceholder;
   static confContainers = AppRouting.confMachineAddress + '/containers';
   static confContainerId = AppRouting.confContainers + '/' + AppRouting.containerIdPlaceholder;

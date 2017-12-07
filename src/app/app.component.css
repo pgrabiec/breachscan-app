@@ -7,44 +7,27 @@
 
 .menu-text {
   height: inherit;
-  font-size: 25px;
+  font-size: 1.5em;
   text-align: center;
   line-height: 60px;
   margin: auto;
   display: block;
+  color: var(--text-color-5);
 }
 
 #title {
   margin: auto;
   text-align: center;
+  background: var(--color-1);
+  color: var(--text-color-1);
 }
 
 #home {
-  background: #64377a;
-}
-
-#machines {
-  background: #af2a33;
-}
-
-#rules {
-  background: #006a8d;
-}
-
-#monitor {
-  background: #188d00;
-}
-
-#events {
-  background: #8d3a16;
-}
-
-#title {
-  background: #807f83;
+  background: var(--color-0);
 }
 
 #navigation {
-  background: lightgray;
+  background: var(--color-5);
   position: sticky;
   top: 0;
   z-index: 999;
@@ -57,7 +40,8 @@
 
 #footer {
   min-height: 50px;
-  background: #676667;
+  background: var(--color-0);
+  color: var(--text-color-0);
 }
 
 .footer-text {
@@ -70,4 +54,9 @@
 
 .material-icons {
   font-size: 2.4em;  /* Preferred icon size */
+  color: var(--text-color-0)
+}
+
+#toast * {
+  background: var(--color-3);
 }

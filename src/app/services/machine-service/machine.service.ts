@@ -2,12 +2,13 @@ import {Injectable} from '@angular/core';
 
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import {ErrorHandlerService} from '../error-handler/error-handler.service';
 import {ApiRouting} from '../../api-routing';
+import {Breachscan} from '../../model/breachscan-api';
 import MachineId = Breachscan.MachineId;
 import Machine = Breachscan.Machine;
+import {catchError} from 'rxjs/operators';
 
 @Injectable()
 export class MachineService {
@@ -18,24 +19,30 @@ export class MachineService {
   }
 
   getMachineIds(): Observable<MachineId[]> {
-    const result = this.http.get<MachineId[]>(this.machinesUrl)
-      .pipe(
-        catchError(this.errorHandler.handleError('getMachineIds', []))
-      );
-
-    result.subscribe((addresses) => this.errorHandler.log('MachineService: fetched machineIds'));
-
-    return result;
+    return this.http.get<MachineId[]>(this.machinesUrl)
+      .pipe(catchError(
+        this.errorHandler.handleError('get machine IDs', 200, null)
+      ));
   }
 
   getMachine(address: string): Observable<Machine> {
-    const result = this.http.get<Machine>(this.machinesUrl + '/' + address)
-      .pipe(
-        catchError(this.errorHandler.handleError('getMachine', null))
-      );
+    return this.http.get<Machine>(this.machinesUrl + '/' + address)
+      .pipe(catchError(
+        this.errorHandler.handleError('get machine', 200, null)
+      ));
+  }
 
-    result.subscribe((addresses) => this.errorHandler.log(`MachineService: fetched machine ${address}`));
+  deleteMachine(address: String): Observable<string> {
+    return this.http.delete<string>(this.machinesUrl + '/' + address)
+      .pipe(catchError(
+        this.errorHandler.handleError('delete machine', 200, null)
+      ));
+  }
 
-    return result;
+  saveMachine(machine: Machine): Observable<string> {
+    return this.http.post(this.machinesUrl, machine)
+      .pipe(catchError(
+        this.errorHandler.handleError('save machine', 201, null)
+      ));
   }
 }

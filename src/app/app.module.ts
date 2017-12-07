@@ -9,10 +9,14 @@ import {MessageService} from './services/message-service/message.service';
 import {AppRoutingModule} from './/app-routing.module';
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ContainerService } from './services/container-service/container.service';
-import { ErrorHandlerService } from './services/error-handler/error-handler.service';
-import { IdComponent } from './id/id.component';
-import { MachineConfigurationComponent } from './machine-configuration/machine-configuration.component';
+import {ContainerService} from './services/container-service/container.service';
+import {ErrorHandlerService} from './services/error-handler/error-handler.service';
+import {IdComponent} from './id/id.component';
+import {MachineConfigurationComponent} from './machine-configuration/machine-configuration.component';
+import {ToasterConfig, ToasterModule} from 'angular2-toaster';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastService} from './services/toast/toast.service';
+import { ConfAddMachineComponent } from './conf-add-machine/conf-add-machine.component';
 
 
 @NgModule({
@@ -21,16 +25,28 @@ import { MachineConfigurationComponent } from './machine-configuration/machine-c
     MachinesConfigurationComponent,
     HomeComponent,
     IdComponent,
-    MachineConfigurationComponent
+    MachineConfigurationComponent,
+    ConfAddMachineComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ToasterModule,
+    BrowserAnimationsModule
   ],
-  providers: [MachineService, MessageService, ContainerService, ErrorHandlerService],
+  providers: [
+    MachineService,
+    MessageService,
+    ContainerService,
+    ErrorHandlerService,
+    ToastService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  public toastConfig: ToasterConfig = new ToasterConfig({
+    positionClass: 'toast-top-right'
+  });
 }
