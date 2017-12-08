@@ -19,6 +19,14 @@ h1 {
   font-size: 250%;
 }
 
+h2 {
+  font-size: 200%;
+}
+
+h3 {
+  font-size: 150%;
+}
+
 * {
   font-family: Cambria, Georgia, monospace;
   font-size: 100%;
@@ -31,8 +39,8 @@ h1 {
 
 .horizontal-list li {
   display: inline-flex;
+  margin: 10px;
 }
-
 
 .form-group {
   margin: 20px;
@@ -51,7 +59,7 @@ h1 {
 }
 
 .form-group-save {
-  width: auto;
+  width: 60px;
   background: var(--color-2);
   color: var(--text-color-2);
   display: block;
@@ -62,54 +70,114 @@ h1 {
   /*left: 50%;*/
 }
 
-.reactive-list {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
+.delete-button {
+  height: inherit;
+  background: black;
+  line-height: 1.1em;
+  display: inline-flex;
+  color: var(--text-color-0);
 }
 
-.reactive-list li {
-  position: relative;
-  cursor: pointer;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
+.material-icons {
+  font-size: 2.4em; /* Preferred icon size */
 }
 
-.reactive-list li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
+.horizontal-ruler {
+  width: 100%;
+  height: 5px;
+  background: var(--color-0);
+  margin-top: 30px;
+  margin-bottom: 30px
 }
 
-.reactive-list li {
-  color: #888;
-  text-decoration: none;
-  position: relative;
+.header-with-operations {
+  float: left;
+  text-align: center;
   display: block;
-  width: 250px;
+  height: inherit;
 }
 
-.reactive-list li:hover {
-  color:#607D8B;
+.operation-container {
+  margin-bottom: 40px;
 }
 
-.reactive-list li {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  min-width: 16px;
-  text-align: right;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+.operation-header {
+  float: left;
+  text-align: center;
+  display: block;
+}
+
+.operation-button {
+  float: right;
+  margin-left: 20px;
+  margin-right: 20px;
+  background: var(--color-2);
+  color: var(--text-color-2);
+  padding: 20px;
+}
+
+.swim-lane-3-container {
+  padding: 0;
+}
+
+.swim-lane-3-lane {
+  float: left;
+  width: 33%;
+  height: auto;
+  min-height: 20em;
+  border: thin solid var(--color-0);
+}
+
+.assignment-state-text {
+
+}
+
+.radio-icon {
+  height: 30px;
+}
+
+.rule-table {
+  border: solid thin var(--color-0);
+  width: 100%;
+  margin-top: 30px;
+}
+
+.rule-table th {
+  color: var(--text-color-0);
+  background: var(--color-0);
+}
+
+.rule-table tr:nth-child(even) {
+  background-color: var(--color-4);
+  color: var(--text-color-4);
+}
+
+.rule-table tr:nth-child(odd) {
+  background-color: var(--color-6);
+  color: var(--text-color-6);
+}
+
+.rule-table th, td {
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.rule-table i, label {
+  margin: auto;
+}
+
+.assignment-active-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  vertical-align: middle;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.assignment-active {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }

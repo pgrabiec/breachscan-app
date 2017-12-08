@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {MachineService} from '../services/machine-service/machine.service';
-import {ActivatedRoute} from '@angular/router';
-import {Breachscan} from '../model/breachscan-api';
 import Machine = Breachscan.Machine;
-import {ToastService, ToastType} from '../services/toast/toast.service';
-import {isSuccess} from '@angular/http/src/http_utils';
+import {Breachscan} from '../../../model/breachscan-api';
+import {MachineService} from '../../../services/conf/machine/machine-service/machine.service';
+import {ToastService, ToastType} from '../../../services/misc/toast/toast.service';
 
 @Component({
   selector: 'app-conf-add-machine',

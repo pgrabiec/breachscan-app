@@ -24,22 +24,29 @@ export class AppRouting {
   static confAddMachine = AppRouting.confMachines + '/add';
   static confMachineAddress = AppRouting.confMachines + '/' + AppRouting.machineAddressPlaceholder;
   static confContainers = AppRouting.confMachineAddress + '/containers';
+  static confAddContainer = AppRouting.confContainers + '/add';
   static confContainerId = AppRouting.confContainers + '/' + AppRouting.containerIdPlaceholder;
   static confContainerRules = AppRouting.confContainerId + '/rules';
 
   static confContainerInteractions = AppRouting.confContainerRules + '/interactions';
+  static confContainerAssignInteraction = AppRouting.confContainerInteractions + '/add';
   static confContainerInteractionId = AppRouting.confContainerInteractions + '/' + AppRouting.interactionRuleIdPlaceholder;
   static confContainerDetections = AppRouting.confContainerRules + '/detections';
+  static confContainerAssignDetection = AppRouting.confContainerDetections + '/add';
   static confContainerDetectionId = AppRouting.confContainerDetections + '/' + AppRouting.detectionRuleIdPlaceholder;
   static confContainerReactions = AppRouting.confContainerRules + '/reactions';
+  static confContainerAssignReaction = AppRouting.confContainerReactions + '/add';
   static confContainerReactionId = AppRouting.confContainerReactions + '/' + AppRouting.reactionRuleIdPlaceholder;
 
   static confRules = AppRouting.configuration + '/rules';
   static confInteractions = AppRouting.confRules + '/interactions';
+  static confAddInteraction = AppRouting.confInteractions + '/add';
   static confInteractionId = AppRouting.confInteractions + '/' + AppRouting.interactionRuleIdPlaceholder;
   static confDetections = AppRouting.confRules + '/detections';
+  static confAddDetection = AppRouting.confDetections + '/add';
   static confDetectionId = AppRouting.confDetections + '/' + AppRouting.detectionRuleIdPlaceholder;
   static confReactions = AppRouting.confRules + '/reactions';
+  static confAddReaction = AppRouting.confReactions + '/add';
   static confReactionId = AppRouting.confReactions + '/' + AppRouting.reactionRuleIdPlaceholder;
 
   static confDefinitions = AppRouting.configuration + '/definitions';
@@ -84,7 +91,7 @@ export class AppRouting {
   }
 
   static replaceReactionRuleId(routingPath: string, reactionRuleId: string): string {
-    return routingPath.replace(routingPath, reactionRuleId);
+    return routingPath.replace(AppRouting.reactionRuleIdPlaceholder, reactionRuleId);
   }
 
   static replaceContainer(routingPath: string, machineAddress: string, containerId: string): string {

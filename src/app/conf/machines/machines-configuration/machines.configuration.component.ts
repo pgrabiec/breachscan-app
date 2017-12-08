@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {MachineService} from '../services/machine-service/machine.service';
-import {AppRouting} from '../app-routing';
-import {ToastService, ToastType} from '../services/toast/toast.service';
-import {Breachscan} from '../model/breachscan-api';
+import {MachineService} from '../../../services/conf/machine/machine-service/machine.service';
+import {AppRouting} from '../../../app-routing';
+import {ToastService, ToastType} from '../../../services/misc/toast/toast.service';
+import {Breachscan} from '../../../model/breachscan-api';
 import MachineId = Breachscan.MachineId;
 
 @Component({

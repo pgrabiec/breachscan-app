@@ -56,5 +56,10 @@
   "defaults": {
     "styleExt": "css",
     "component": {}
+  },
+  "stylePreprocessorOptions": {
+    "includePaths": [
+      "style.css"
+    ]
   }
 }

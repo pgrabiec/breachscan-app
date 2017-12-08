@@ -1,0 +1,26 @@
+<div *ngIf="ruleInfos">
+  <h1>Assign {{ruleTypeName}} rule</h1>
+  <h3>Machine: {{machineAddress}}</h3>
+  <h3>container {{containerId}}</h3>
+
+  <table class="rule-table" id="interactions">
+    <tr>
+      <th>Rule name</th>
+      <th>Rule id</th>
+      <th>Type</th>
+      <th>Details & Edit</th>
+      <th>Assign</th>
+    </tr>
+    <tr *ngFor="let ruleInfo of ruleInfos">
+      <td>{{ruleInfo.name}}</td>
+      <td>{{ruleInfo.id}}</td>
+      <td>{{ruleInfo.type}}</td>
+      <td routerLink="">
+        <i class="edit-icon, material-icons">more_horiz</i>
+      </td>
+      <td>
+        <i class="edit-icon, material-icons" (click)="onRuleAssign(ruleInfo.id)">add_circle</i>
+      </td>
+    </tr>
+  </table>
+</div>

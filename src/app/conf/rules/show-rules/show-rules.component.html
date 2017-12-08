@@ -1,0 +1,22 @@
+<div *ngIf="ruleInfos">
+  <table class="rule-table">
+    <tr>
+      <th>Rule name</th>
+      <th>Rule id</th>
+      <th>Type</th>
+      <th>Details & Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let ruleInfo of ruleInfos">
+      <td>{{ruleInfo.name}}</td>
+      <td>{{ruleInfo.id}}</td>
+      <td>{{ruleInfo.type}}</td>
+      <td routerLink="/{{showRuleRoute}}/{{ruleInfo.id}}">
+        <i class="edit-icon, material-icons">more_horiz</i>
+      </td>
+      <td (click)="onDelete">
+        <i class="edit-icon, material-icons">delete_forever</i>
+      </td>
+    </tr>
+  </table>
+</div>

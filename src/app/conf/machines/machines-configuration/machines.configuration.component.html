@@ -1,14 +1,12 @@
 <div>
-  <div>
-    <div id="header">
-      <h1>All machines</h1>
-    </div>
-    <div id="addMachine" routerLink="/{{addMachineRoute}}">New</div>
+  <div class="operation-container">
+    <h1 class="operation-header">All machines</h1>
+    <div class="operation-button" routerLink="/{{addMachineRoute}}">New</div>
     <div style="clear: both"></div>
   </div>
   <ul class="horizontal-list">
     <li *ngFor="let machineId of machineIds" id="machine">
-      <i id="delete" (click)="deleteMachine(machineId.address)" class="material-icons">close</i>
+      <i id="delete" (click)="deleteMachine(machineId.address)" class="delete-button material-icons">delete_forever</i>
       <app-id
         routerLink="/{{machinesRoute}}/{{machineId.address}}"
         [id]="machineId.address"

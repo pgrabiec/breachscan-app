@@ -82,7 +82,7 @@ export class ApiRouting {
   }
 
   static replaceReactionRuleId(routingPath: string, reactionRuleId: string): string {
-    return routingPath.replace(routingPath, reactionRuleId);
+    return routingPath.replace(ApiRouting.reactionRuleIdPlaceholder, reactionRuleId);
   }
 
   static replaceContainer(routingPath: string, machineAddress: string, containerId: string): string {

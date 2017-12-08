@@ -1,0 +1,41 @@
+<div>
+  <div class="operation-container">
+    <h2 class="operation-header">All interaction rules</h2>
+    <div class="operation-button" routerLink="/{{addInteractionRoute}}">New</div>
+    <div style="clear: both"></div>
+  </div>
+
+  <app-show-rules
+    [onDelete]="deleteInteractionRule"
+    [ruleInfos]="interactionRules"
+    [showRuleRoute]="showInteractionRoute"
+  ></app-show-rules>
+
+  <hr class="horizontal-ruler">
+
+  <div class="operation-container">
+    <h2 class="operation-header">All detection rules</h2>
+    <div class="operation-button" routerLink="/{{addDetectionRoute}}">New</div>
+    <div style="clear: both"></div>
+  </div>
+
+  <app-show-rules
+    [onDelete]="deleteDetectionRule"
+    [ruleInfos]="detectionRules"
+    [showRuleRoute]="showDetectionRoute"
+  ></app-show-rules>
+
+  <hr class="horizontal-ruler">
+
+  <div class="operation-container">
+    <h2 class="operation-header">All reaction rules</h2>
+    <div class="operation-button" routerLink="/{{addReactionRoute}}">New</div>
+    <div style="clear: both"></div>
+  </div>
+
+  <app-show-rules
+    [onDelete]="deleteReactionRule"
+    [ruleInfos]="reactionRules"
+    [showRuleRoute]="showReactionRoute"
+  ></app-show-rules>
+</div>
