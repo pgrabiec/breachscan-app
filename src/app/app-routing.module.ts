@@ -17,6 +17,7 @@ import {ConfigureReactionComponent} from './conf/rules/rule/configure-reaction/c
 import {AddInteractionRuleComponent} from './conf/rules/add/add-interaction-rule/add-interaction-rule.component';
 import {AddDetectionRuleComponent} from './conf/rules/add/add-detection-rule/add-detection-rule.component';
 import {AddReactionRuleComponent} from './conf/rules/add/add-reaction-rule/add-reaction-rule.component';
+import {ShowStateComponent} from './state/show-state/show-state.component';
 
 const routes: Routes = [
   { path: '', redirectTo: AppRouting.home, pathMatch: 'full' },
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: AppRouting.confAddDetection, component: AddDetectionRuleComponent },
   { path: AppRouting.confDetectionId, component: ConfigureDetectionComponent },
   { path: AppRouting.confAddReaction, component: AddReactionRuleComponent },
-  { path: AppRouting.confReactionId, component: ConfigureReactionComponent }
+  { path: AppRouting.confReactionId, component: ConfigureReactionComponent },
+  { path: AppRouting.state, component: ShowStateComponent }
 ];
 
 @NgModule({

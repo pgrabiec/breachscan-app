@@ -1,10 +1,10 @@
 export class AppRouting {
   // Placeholders
 
-  static machineAddressName = 'machineAddress';
+  static machineAddressName = 'machineName';
   static machineAddressPlaceholder = ':' + AppRouting.machineAddressName;
 
-  static containerIdName = 'containerId';
+  static containerIdName = 'containerName';
   static containerIdPlaceholder = ':' + AppRouting.containerIdName;
 
   static interactionRuleIdName = 'interactionRuleId';

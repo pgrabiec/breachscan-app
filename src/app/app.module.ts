@@ -16,25 +16,26 @@ import {MachineConfigurationComponent} from './conf/machines/machine-configurati
 import {ToasterConfig, ToasterModule} from 'angular2-toaster';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastService} from './services/misc/toast/toast.service';
-import { ConfAddMachineComponent } from './conf/machines/conf-add-machine/conf-add-machine.component';
+import {ConfAddMachineComponent} from './conf/machines/conf-add-machine/conf-add-machine.component';
 import {UrlInterceptor} from './services/misc/http-service/url-interceptor.service';
-import { ConfAddContainerComponent } from './conf/machines/containers/conf-add-container/conf-add-container.component';
-import { ContainerConfigurationComponent } from './conf/machines/containers/container-configuration/container-configuration.component';
-import { AssignRuleComponent } from './conf/machines/containers/rules/assign-rule/assign-rule.component';
-import { AssignInteractionComponent } from './conf/machines/containers/rules/assign-interaction/assign-interaction.component';
-import { AssignDetectionComponent } from './conf/machines/containers/rules/assign-detection/assign-detection.component';
-import { AssignReactionComponent } from './conf/machines/containers/rules/assign-reaction/assign-reaction.component';
+import {ConfAddContainerComponent} from './conf/machines/containers/conf-add-container/conf-add-container.component';
+import {ContainerConfigurationComponent} from './conf/machines/containers/container-configuration/container-configuration.component';
+import {AssignRuleComponent} from './conf/machines/containers/rules/assign-rule/assign-rule.component';
+import {AssignInteractionComponent} from './conf/machines/containers/rules/assign-interaction/assign-interaction.component';
+import {AssignDetectionComponent} from './conf/machines/containers/rules/assign-detection/assign-detection.component';
+import {AssignReactionComponent} from './conf/machines/containers/rules/assign-reaction/assign-reaction.component';
 import {ContainerRulesService} from './services/conf/machine/container/container-rules-service/container-rules.service';
-import { ShowRulesComponent } from './conf/rules/show-all-rules/show-all-rules.component';
+import {ShowRulesComponent} from './conf/rules/show-all-rules/show-all-rules.component';
 import {RulesService} from './services/conf/rules/rules-service/rules-service.service';
-import { ConfigureRuleComponent } from './conf/rules/rule/configure-rule/configure-rule.component';
-import { ConfigureInteractionComponent } from './conf/rules/rule/configure-interaction/configure-interaction.component';
-import { ConfigureDetectionComponent } from './conf/rules/rule/configure-detection/configure-detection.component';
-import { ConfigureReactionComponent } from './conf/rules/rule/configure-reaction/configure-reaction.component';
-import { AddInteractionRuleComponent } from './conf/rules/add/add-interaction-rule/add-interaction-rule.component';
-import { AddDetectionRuleComponent } from './conf/rules/add/add-detection-rule/add-detection-rule.component';
-import { AddReactionRuleComponent } from './conf/rules/add/add-reaction-rule/add-reaction-rule.component';
-
+import {ConfigureRuleComponent} from './conf/rules/rule/configure-rule/configure-rule.component';
+import {ConfigureInteractionComponent} from './conf/rules/rule/configure-interaction/configure-interaction.component';
+import {ConfigureDetectionComponent} from './conf/rules/rule/configure-detection/configure-detection.component';
+import {ConfigureReactionComponent} from './conf/rules/rule/configure-reaction/configure-reaction.component';
+import {AddInteractionRuleComponent} from './conf/rules/add/add-interaction-rule/add-interaction-rule.component';
+import {AddDetectionRuleComponent} from './conf/rules/add/add-detection-rule/add-detection-rule.component';
+import {AddReactionRuleComponent} from './conf/rules/add/add-reaction-rule/add-reaction-rule.component';
+import { ShowStateComponent } from './state/show-state/show-state.component';
+import {StateService} from './services/state/state.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AddReactionRuleComponent } from './conf/rules/add/add-reaction-rule/add
     ConfigureReactionComponent,
     AddInteractionRuleComponent,
     AddDetectionRuleComponent,
-    AddReactionRuleComponent
+    AddReactionRuleComponent,
+    ShowStateComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,8 @@ import { AddReactionRuleComponent } from './conf/rules/add/add-reaction-rule/add
     ErrorHandlerService,
     ToastService,
     ContainerRulesService,
-    RulesService
+    RulesService,
+    StateService
   ],
   bootstrap: [AppComponent]
 })

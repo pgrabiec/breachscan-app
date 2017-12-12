@@ -1,4 +1,4 @@
-// Generated using typescript-generator version 1.30.381 on 2017-12-12 14:01:33.
+// Generated using typescript-generator version 1.30.381 on 2017-12-12 19:23:48.
 
 export namespace Breachscan {
 
@@ -67,9 +67,6 @@ export namespace Breachscan {
     properties: { [index: string]: string };
   }
 
-  export class DetectionRuleImplementation {
-  }
-
   export class ExecDetectionRule extends DetectionRule {
     execName: string;
   }
@@ -124,6 +121,64 @@ export namespace Breachscan {
     rule: string;
   }
 
+  export class BreachScanState {
+    machines: { [index: string]: MachineState };
+    interactionModulesState: InteractionModulesState;
+    detectionModulesState: DetectionModulesState;
+    reactionModulesState: ReactionModulesState;
+  }
+
+  export class DetectionModulesState {
+    detectionModulesOnline: string[];
+  }
+
+  export class InteractionModulesState {
+    interactionModulesOnline: string[];
+    interactionRequests: InteractionRequestState[];
+  }
+
+  export class InteractionRequestState {
+    interactionModuleId: string;
+    machineAddress: string;
+    containerId: string;
+    interactionRuleId: string;
+    interactionRequestId: string;
+  }
+
+  export class MachineState {
+    machineAddress: string;
+    containers: { [index: string]: ContainerState };
+  }
+
+  export class ContainerState {
+    containerId: string;
+    interactions: { [index: string]: InteractionRuleState };
+    detections: { [index: string]: DetectionRuleState };
+    reactions: { [index: string]: ReactionRuleState };
+  }
+
+  export class DetectionRuleState {
+    detectionRuleId: string;
+    detectionModules: string[];
+  }
+
+  export class InteractionRuleState {
+    interactionRuleId: string;
+    interactionModules: string[];
+  }
+
+  export class ReactionRuleState {
+    reactionRuleId: string;
+    reactionModules: string[];
+  }
+
+  export class ReactionModulesState {
+    reactionModulesOnline: string[];
+  }
+
+  export class ImmutableUtils {
+  }
+
   export type DetectionEventType = 'EVENT_EXEC';
 
   export type DetectionRuleType = 'DETECT_EXEC_NAME';
@@ -133,5 +188,4 @@ export namespace Breachscan {
   export type ReactionRuleType = 'REACTION_ANY_INPUT_EVENT';
 
   export type ReactionType = 'REACTION_RESTART_CONTAINER';
-
 }

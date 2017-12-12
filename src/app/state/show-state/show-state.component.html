@@ -1,0 +1,25 @@
+<div>
+  <h1>Monitoring configuration</h1>
+
+  <div class="operation-container">
+    <h3 class="operation-header">Current monitoring state</h3>
+    <div class="operation-button" (click)="forceUpdate()">Force update</div>
+    <div class="operation-button" (click)="stopAllMonitoring()">Stop</div>
+    <div style="clear: both"></div>
+  </div>
+
+  <table class="rule-table" id="state" *ngIf="states">
+    <tr>
+      <th>Machine name</th>
+      <th>Container name</th>
+      <th>Rule name</th>
+      <th>Modules count</th>
+    </tr>
+    <tr *ngFor="let state of states">
+      <td>{{state.machine}}</td>
+      <td>{{state.container}}</td>
+      <td>{{state.rule}}</td>
+      <td>{{state.modules}}</td>
+    </tr>
+  </table>
+</div>

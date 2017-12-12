@@ -12,4 +12,5 @@ export class AppComponent {
   homeRoute = AppRouting.home;
   machinesRoute = AppRouting.confMachines;
   rulesRoute = AppRouting.confRules;
+  stateRoute = AppRouting.state;
 }
