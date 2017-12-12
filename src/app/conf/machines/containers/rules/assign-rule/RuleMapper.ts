@@ -9,6 +9,8 @@ export class RuleMapper {
     return new RuleInfo(
       interactionRule.name,
       interactionRule.id,
+      interactionRule.type,
+      'DOCKER_DATA',
       interactionRule.type
     );
   }
@@ -17,7 +19,9 @@ export class RuleMapper {
     return new RuleInfo(
       detectionRule.name,
       detectionRule.id,
-      detectionRule.type
+      detectionRule.type,
+      detectionRule.input,
+      detectionRule.output
     );
   }
 
@@ -25,7 +29,9 @@ export class RuleMapper {
     return new RuleInfo(
       reactionRule.name,
       reactionRule.id,
-      reactionRule.type
+      reactionRule.type,
+      reactionRule.input,
+      reactionRule.output
     );
   }
 }

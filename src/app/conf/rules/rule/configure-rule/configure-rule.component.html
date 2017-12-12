@@ -1,0 +1,48 @@
+<div *ngIf="rule">
+  <div id="ruleConf">
+    <h1>{{CapitalRuleType}} rule {{rule.name}} ({{rule.id}})</h1>
+    <div class="form-group">
+      <label>Id</label>
+      <input [(ngModel)]="rule.id" placeholder="id" disabled>
+    </div>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input [(ngModel)]="rule.name" placeholder="name">
+    </div>
+
+    <div class="form-group">
+      <label>Type</label>
+      <input [(ngModel)]="rule.type" placeholder="type" disabled>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <input [(ngModel)]="rule.description" placeholder="description">
+    </div>
+
+    <h2>Properties</h2>
+
+    <table class="rule-table">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+      <tr *ngFor="let propertyName of propertyNames">
+        <td>{{propertyName}}</td>
+        <td>
+          <input
+            [(ngModel)]="rule.properties[propertyName]"
+            placeholder="value"
+            class="table-data-input">
+        </td>
+      </tr>
+    </table>
+
+    <div id="update" style="float: left" class="form-group-save" (click)="updateRule()">Update</div>
+    <div id="reset" style="float: left" class="form-group-save" (click)="resetRule()">Reset</div>
+    <div style="clear: both"></div>
+  </div>
+
+
+</div>

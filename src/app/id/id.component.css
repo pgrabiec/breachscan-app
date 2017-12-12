@@ -6,13 +6,18 @@
 }
 
 #name {
-  background: var(--color-3);
-  color: var(--text-color-3);
+  background: var(--color-2);
+  color: var(--text-color-2);
   display: inline;
   padding: 10px;
 }
 
 #container {
-  border: var(--color-0) solid 3px;
+  border: black solid medium;
   display: inline-flex;
+}
+
+#container:hover {
+  border-color: forestgreen !important;
+  cursor: pointer;
 }

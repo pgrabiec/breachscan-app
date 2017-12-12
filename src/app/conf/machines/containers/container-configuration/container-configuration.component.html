@@ -1,6 +1,7 @@
 <div *ngIf="container">
   <div id="containerConf">
     <h1>Container configuration: {{container.name}} ({{container.id}})</h1>
+    <h3>Machine {{machineAddress}}</h3>
     <div class="form-group">
       <label>Id</label>
       <input [(ngModel)]="container.id" placeholder="id" disabled>
@@ -37,14 +38,12 @@
     <table class="rule-table" id="interactions" *ngIf="interactions">
       <tr>
         <th>Rule name</th>
-        <th>Rule id</th>
         <th>Assignment active?</th>
         <th>Details & Edit</th>
         <th>Remove</th>
       </tr>
       <tr *ngFor="let interactionAssignment of interactions">
         <td>{{interactionAssignment.configuration.name}}</td>
-        <td>{{interactionAssignment.configuration.id}}</td>
         <td>
           <div [ngSwitch]="interactionAssignment.active" class="assignment-active">
             <div *ngSwitchCase="true" class="assignment-active-container">
@@ -67,7 +66,9 @@
           </div>
         </td>
         <td>
-          <i class="edit-icon, material-icons">more_horiz</i>
+          <i class="edit-icon, material-icons"
+             routerLink="/{{interactionRulesRoute}}/{{interactionAssignment.configuration.id}}">
+            more_horiz</i>
         </td>
         <td>
           <i class="edit-icon, material-icons" (click)="removeInteractionRule(interactionAssignment.configuration.id)">
@@ -87,14 +88,12 @@
     <table class="rule-table" id="detections" *ngIf="detections">
       <tr>
         <th>Rule name</th>
-        <th>Rule id</th>
         <th>Assignment active?</th>
         <th>Details & Edit</th>
         <th>Remove</th>
       </tr>
       <tr *ngFor="let detectionAssignment of detections">
         <td>{{detectionAssignment.configuration.name}}</td>
-        <td>{{detectionAssignment.configuration.id}}</td>
         <td>
           <div [ngSwitch]="detectionAssignment.active" class="assignment-active">
             <div *ngSwitchCase="true" class="assignment-active-container">
@@ -117,7 +116,9 @@
           </div>
         </td>
         <td>
-          <i class="edit-icon, material-icons">more_horiz</i>
+          <i class="edit-icon, material-icons"
+             routerLink="/{{detectionRulesRoute}}/{{detectionAssignment.configuration.id}}">
+            more_horiz</i>
         </td>
         <td>
           <i class="edit-icon, material-icons" (click)="removeDetectionRule(detectionAssignment.configuration.id)">
@@ -137,14 +138,12 @@
     <table class="rule-table" id="reactions" *ngIf="reactions">
       <tr>
         <th>Rule name</th>
-        <th>Rule id</th>
         <th>Assignment active?</th>
         <th>Details & Edit</th>
         <th>Remove</th>
       </tr>
       <tr *ngFor="let reactionAssignment of reactions">
         <td>{{reactionAssignment.configuration.name}}</td>
-        <td>{{reactionAssignment.configuration.id}}</td>
         <td>
           <div [ngSwitch]="reactionAssignment.active" class="assignment-active">
             <div *ngSwitchCase="true" class="assignment-active-container">
@@ -167,7 +166,9 @@
           </div>
         </td>
         <td>
-          <i class="edit-icon, material-icons">more_horiz</i>
+          <i class="edit-icon, material-icons"
+             routerLink="/{{reactionRulesRoute}}/{{reactionAssignment.configuration.id}}">
+            more_horiz</i>
         </td>
         <td>
           <i class="edit-icon, material-icons" (click)="removeReactionRule(reactionAssignment.configuration.id)">

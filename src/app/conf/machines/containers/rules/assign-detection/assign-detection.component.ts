@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppRouting} from '../../../../../app-routing';
 import {RulesService} from '../../../../../services/conf/rules/rules-service/rules-service.service';
 import {ActivatedRoute} from '@angular/router';
@@ -18,6 +18,8 @@ export class AssignDetectionComponent implements OnInit {
   machineAddress: string;
   containerId: string;
   detectionRules: RuleInfo[];
+  rulesRoute = AppRouting.confDetections;
+
   constructor(private route: ActivatedRoute,
               private rulesService: RulesService) {
     this.machineAddress = this.route.snapshot.paramMap.get(AppRouting.machineAddressName);

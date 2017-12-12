@@ -27,7 +27,13 @@ import { AssignReactionComponent } from './conf/machines/containers/rules/assign
 import {ContainerRulesService} from './services/conf/machine/container/container-rules-service/container-rules.service';
 import { ShowRulesComponent } from './conf/rules/show-all-rules/show-all-rules.component';
 import {RulesService} from './services/conf/rules/rules-service/rules-service.service';
-import { ShowRuleComponent } from './conf/rules/show-rules/show-rules.component';
+import { ConfigureRuleComponent } from './conf/rules/rule/configure-rule/configure-rule.component';
+import { ConfigureInteractionComponent } from './conf/rules/rule/configure-interaction/configure-interaction.component';
+import { ConfigureDetectionComponent } from './conf/rules/rule/configure-detection/configure-detection.component';
+import { ConfigureReactionComponent } from './conf/rules/rule/configure-reaction/configure-reaction.component';
+import { AddInteractionRuleComponent } from './conf/rules/add/add-interaction-rule/add-interaction-rule.component';
+import { AddDetectionRuleComponent } from './conf/rules/add/add-detection-rule/add-detection-rule.component';
+import { AddReactionRuleComponent } from './conf/rules/add/add-reaction-rule/add-reaction-rule.component';
 
 
 @NgModule({
@@ -45,7 +51,13 @@ import { ShowRuleComponent } from './conf/rules/show-rules/show-rules.component'
     AssignDetectionComponent,
     AssignReactionComponent,
     ShowRulesComponent,
-    ShowRuleComponent
+    ConfigureRuleComponent,
+    ConfigureInteractionComponent,
+    ConfigureDetectionComponent,
+    ConfigureReactionComponent,
+    AddInteractionRuleComponent,
+    AddDetectionRuleComponent,
+    AddReactionRuleComponent
   ],
   imports: [
     BrowserModule,

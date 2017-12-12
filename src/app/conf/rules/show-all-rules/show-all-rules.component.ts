@@ -55,28 +55,37 @@ export class ShowRulesComponent implements OnInit {
 
   deleteInteractionRule(interactionRuleId: string) {
     this.rulesService.deleteInteractionRule(interactionRuleId)
-      .subscribe((response) => this.toastService.popToast(
-        ToastType.SUCCESS,
-        'Deleted interaction rule',
-        interactionRuleId
-      ));
+      .subscribe((response) => {
+        this.toastService.popToast(
+          ToastType.SUCCESS,
+          'Deleted interaction rule',
+          interactionRuleId
+        );
+        this.getInteractions();
+      });
   }
 
   deleteDetectionRule(detectionRuleId: string) {
     this.rulesService.deleteDetectionRule(detectionRuleId)
-      .subscribe((response) => this.toastService.popToast(
-        ToastType.SUCCESS,
-        'Deleted detection rule',
-        detectionRuleId
-      ));
+      .subscribe((response) => {
+        this.toastService.popToast(
+          ToastType.SUCCESS,
+          'Deleted detection rule',
+          detectionRuleId
+        );
+        this.getDetections();
+      });
   }
 
-  deleteReactionRule(reactionRuleId: string) {
+  deleteReactionRule: Function = (reactionRuleId: string) => {
     this.rulesService.deleteReactionRule(reactionRuleId)
-      .subscribe((response) => this.toastService.popToast(
-        ToastType.SUCCESS,
-        'Deleted reaction rule',
-        reactionRuleId
-      ));
+      .subscribe((response) => {
+        this.toastService.popToast(
+          ToastType.SUCCESS,
+          'Deleted reaction rule',
+          reactionRuleId
+        );
+        this.getReactions();
+      });
   }
 }

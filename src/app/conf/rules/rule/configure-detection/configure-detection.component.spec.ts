@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowRuleComponent } from './show-rules.component';
+import { ConfigureDetectionComponent } from './configure-detection.component';
 
-describe('ShowRuleComponent', () => {
-  let component: ShowRuleComponent;
-  let fixture: ComponentFixture<ShowRuleComponent>;
+describe('ConfigureDetectionComponent', () => {
+  let component: ConfigureDetectionComponent;
+  let fixture: ComponentFixture<ConfigureDetectionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowRuleComponent ]
+      declarations: [ ConfigureDetectionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShowRuleComponent);
+    fixture = TestBed.createComponent(ConfigureDetectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

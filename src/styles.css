@@ -1,18 +1,12 @@
 :root {
-  --color-0: #30231d;
-  --color-1: #3c302a;
-  --color-2: #43352f;
-  --color-3: #6a5750;
-  --color-4: #b5a397;
-  --color-5: #d2c0b3;
-  --color-6: #f6f1ed;
-  --text-color-0: #9b9692;
-  --text-color-1: #bfbab6;
-  --text-color-2: #aea9a5;
-  --text-color-3: #000000;
-  --text-color-4: #261811;
-  --text-color-5: #1e120f;
-  --text-color-6: #211510;
+  --color-0: #80642c;
+  --color-1: #874f3a;
+  --color-2: #c09f80;
+  --color-3: #d7cec7;
+  --text-color-0: #ffffff;
+  --text-color-1: black;
+  --text-color-2: black;
+  --text-color-3: black;
 }
 
 h1 {
@@ -51,23 +45,27 @@ h3 {
   margin-left: 0;
 }
 
-.form-group input {
+.form-group input, select {
   width: 100%;
   max-width: 100%;
   min-width: 100%;
-  background: var(--color-4);
+  background: var(--color-2);
+  color: var(--text-color-2);
 }
 
 .form-group-save {
   width: 60px;
-  background: var(--color-2);
-  color: var(--text-color-2);
+  background: var(--color-1);
+  color: var(--text-color-1);
   display: block;
   padding: 10px 20px 10px 20px;
-  margin-top: 20px;
+  margin: 20px 20px 20px 0;
   text-align: center;
-  /*position: absolute;*/
-  /*left: 50%;*/
+}
+
+.form-group-save:hover {
+  background: forestgreen !important;
+  cursor: pointer !important;
 }
 
 .delete-button {
@@ -75,7 +73,7 @@ h3 {
   background: black;
   line-height: 1.1em;
   display: inline-flex;
-  color: var(--text-color-0);
+  color: var(--color-2);
 }
 
 .material-icons {
@@ -85,7 +83,7 @@ h3 {
 .horizontal-ruler {
   width: 100%;
   height: 5px;
-  background: var(--color-0);
+  background: var(--color-1);
   margin-top: 30px;
   margin-bottom: 30px
 }
@@ -114,22 +112,16 @@ h3 {
   background: var(--color-2);
   color: var(--text-color-2);
   padding: 20px;
+  border: solid thin black;
+}
+
+.operation-button:hover {
+  background: forestgreen !important;
+  cursor: pointer !important;
 }
 
 .swim-lane-3-container {
   padding: 0;
-}
-
-.swim-lane-3-lane {
-  float: left;
-  width: 33%;
-  height: auto;
-  min-height: 20em;
-  border: thin solid var(--color-0);
-}
-
-.assignment-state-text {
-
 }
 
 .radio-icon {
@@ -139,22 +131,18 @@ h3 {
 .rule-table {
   border: solid thin var(--color-0);
   width: 100%;
+  max-width: 100%;
   margin-top: 30px;
+  border-collapse: collapse;
 }
 
 .rule-table th {
-  color: var(--text-color-0);
-  background: var(--color-0);
+  color: black;
+  background: var(--color-2);
 }
 
-.rule-table tr:nth-child(even) {
-  background-color: var(--color-4);
-  color: var(--text-color-4);
-}
-
-.rule-table tr:nth-child(odd) {
-  background-color: var(--color-6);
-  color: var(--text-color-6);
+.rule-table table, th, td {
+  border: thin black solid;
 }
 
 .rule-table th, td {
@@ -180,4 +168,17 @@ h3 {
   display: flex;
   width: 100%;
   height: 100%;
+}
+
+.table-data-input {
+  background: inherit;
+  width: 100%;
+  height: 100%;
+  border: solid thin var(--color-0);
+  padding: 5px;
+}
+
+.material-icons:hover {
+  color: maroon !important;
+  cursor: pointer !important;
 }

@@ -146,4 +146,37 @@ export class RulesService {
         this.errorHandler.handleError('get reaction rule', 200, null)
       ));
   }
+
+  saveInteractionRule(rule: InteractionRule): Observable<InteractionRule> {
+    rule.id = null;
+    return this.http.post<InteractionRule>(
+      ApiRouting.confInteractions,
+      rule
+    )
+      .pipe(catchError(
+        this.errorHandler.handleError('save interaction rule', 201, null)
+      ));
+  }
+
+  saveDetectionRule(rule: DetectionRule): Observable<DetectionRule> {
+    rule.id = null;
+    return this.http.post<DetectionRule>(
+      ApiRouting.confDetections,
+      rule
+    )
+      .pipe(catchError(
+        this.errorHandler.handleError('save detection rule', 201, null)
+      ));
+  }
+
+  saveReactionRule(rule: ReactionRule): Observable<ReactionRule> {
+    rule.id = null;
+    return this.http.post<ReactionRule>(
+      ApiRouting.confReactions,
+      rule
+    )
+      .pipe(catchError(
+        this.errorHandler.handleError('save reaction rule', 201, null)
+      ));
+  }
 }

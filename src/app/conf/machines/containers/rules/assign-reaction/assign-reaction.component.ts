@@ -18,6 +18,7 @@ export class AssignReactionComponent implements OnInit {
   machineAddress: string;
   containerId: string;
   reactionRules: RuleInfo[];
+  rulesRoute = AppRouting.confReactions;
 
   constructor(private route: ActivatedRoute,
               private rulesService: RulesService) {

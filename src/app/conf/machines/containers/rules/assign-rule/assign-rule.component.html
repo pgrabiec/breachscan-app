@@ -16,7 +16,7 @@
       <td>{{ruleInfo.id}}</td>
       <td>{{ruleInfo.type}}</td>
       <td routerLink="">
-        <i class="edit-icon, material-icons">more_horiz</i>
+        <i class="edit-icon, material-icons" routerLink="/{{rulesRoute}}/{{ruleInfo.id}}">more_horiz</i>
       </td>
       <td>
         <i class="edit-icon, material-icons" (click)="onRuleAssign(ruleInfo.id)">add_circle</i>

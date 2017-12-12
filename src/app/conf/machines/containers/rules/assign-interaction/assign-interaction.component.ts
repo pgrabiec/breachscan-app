@@ -18,6 +18,8 @@ export class AssignInteractionComponent implements OnInit {
   machineAddress: string;
   containerId: string;
   interactionRules: RuleInfo[];
+  rulesRoute = AppRouting.confInteractions;
+
   constructor(private route: ActivatedRoute,
               private rulesService: RulesService) {
     this.machineAddress = this.route.snapshot.paramMap.get(AppRouting.machineAddressName);

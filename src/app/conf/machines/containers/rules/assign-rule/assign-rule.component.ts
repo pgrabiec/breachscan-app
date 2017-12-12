@@ -14,6 +14,7 @@ export class AssignRuleComponent implements OnInit {
   @Input() machineAddress: string;
   @Input() containerId: string;
   @Input() ruleTypeName: string;
+  @Input() rulesRoute: string;
 
   constructor(private containerRulesService: ContainerRulesService,
               private toastService: ToastService) {
