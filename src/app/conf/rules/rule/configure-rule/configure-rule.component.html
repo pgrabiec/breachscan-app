@@ -1,47 +1,52 @@
 <div *ngIf="rule">
   <div id="ruleConf">
-    <h1>{{CapitalRuleType}} rule {{rule.name}} ({{rule.id}})</h1>
+    <h1>{{CapitalRuleType}} rule configuration</h1>
     <div class="form-group">
-      <label>Id</label>
-      <input [(ngModel)]="rule.id" placeholder="id" disabled>
+
+      <div>
+        <label class="control-label">Id</label>
+        <input class="form-control" [(ngModel)]="rule.id" placeholder="id" disabled>
+      </div>
+
+      <div>
+        <label class="control-label">Name</label>
+        <input class="form-control" [(ngModel)]="rule.name" placeholder="name">
+      </div>
+
+      <div>
+        <label class="control-label">Type</label>
+        <input class="form-control" [(ngModel)]="rule.type" placeholder="type" disabled>
+      </div>
+
+      <div>
+        <label class="control-label">Description</label>
+        <input class="form-control" [(ngModel)]="rule.description" placeholder="description">
+      </div>
+
+      <div class="light-section">
+        <h2 id="properties">Properties</h2>
+
+        <table class="table">
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+          </tr>
+          <tr *ngFor="let propertyName of propertyNames">
+            <td>{{propertyName}}</td>
+            <td>
+              <input
+                [(ngModel)]="rule.properties[propertyName]"
+                placeholder="value"
+                class="table-data-input">
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <button style="float: left" class="btn" (click)="updateRule()">Update</button>
+      <button style="float: left" class="btn" (click)="resetRule()">Reset</button>
+      <div style="clear: both"></div>
     </div>
-
-    <div class="form-group">
-      <label>Name</label>
-      <input [(ngModel)]="rule.name" placeholder="name">
-    </div>
-
-    <div class="form-group">
-      <label>Type</label>
-      <input [(ngModel)]="rule.type" placeholder="type" disabled>
-    </div>
-
-    <div class="form-group">
-      <label>Description</label>
-      <input [(ngModel)]="rule.description" placeholder="description">
-    </div>
-
-    <h2>Properties</h2>
-
-    <table class="rule-table">
-      <tr>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-      <tr *ngFor="let propertyName of propertyNames">
-        <td>{{propertyName}}</td>
-        <td>
-          <input
-            [(ngModel)]="rule.properties[propertyName]"
-            placeholder="value"
-            class="table-data-input">
-        </td>
-      </tr>
-    </table>
-
-    <div id="update" style="float: left" class="form-group-save" (click)="updateRule()">Update</div>
-    <div id="reset" style="float: left" class="form-group-save" (click)="resetRule()">Reset</div>
-    <div style="clear: both"></div>
   </div>
 
 

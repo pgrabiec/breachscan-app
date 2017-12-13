@@ -1,19 +1,19 @@
 <div>
   <h1>Create interaction rule</h1>
 
-  <hr class="horizontal-ruler">
+  <div class="light-section form-group">
+    <h3>Add exec interaction rule</h3>
 
-  <h3>Add exec interaction rule</h3>
+    <div>
+      <label class="control-label">Name</label>
+      <input class="form-control" [(ngModel)]="execInteractionRule.name" placeholder="name">
+    </div>
 
-  <div class="form-group">
-    <label>Name</label>
-    <input [(ngModel)]="execInteractionRule.name" placeholder="name">
+    <div>
+      <label class="control-label">Description</label>
+      <input class="form-control" [(ngModel)]="execInteractionRule.description" placeholder="description">
+    </div>
+
+    <button id="save" class="btn" (click)="saveExecInteractionRule()">Save</button>
   </div>
-
-  <div class="form-group">
-    <label>Description</label>
-    <input [(ngModel)]="execInteractionRule.description" placeholder="description">
-  </div>
-
-  <div id="save" class="form-group-save" (click)="saveExecInteractionRule()">Save</div>
 </div>

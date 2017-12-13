@@ -1,3 +1,6 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
 :root {
   --color-0: #80642c;
   --color-1: #874f3a;
@@ -15,6 +18,7 @@ h1 {
 
 h2 {
   font-size: 200%;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
@@ -34,50 +38,6 @@ h3 {
 .horizontal-list li {
   display: inline-flex;
   margin: 10px;
-}
-
-.form-group {
-  margin: 20px;
-}
-
-.form-group * {
-  display: block;
-  margin-left: 0;
-}
-
-.form-group input, select {
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  background: var(--color-2);
-  color: var(--text-color-2);
-}
-
-.form-group-save {
-  width: 60px;
-  background: var(--color-1);
-  color: var(--text-color-1);
-  display: block;
-  padding: 10px 20px 10px 20px;
-  margin: 20px 20px 20px 0;
-  text-align: center;
-}
-
-.form-group-save:hover {
-  background: forestgreen !important;
-  cursor: pointer !important;
-}
-
-.delete-button {
-  height: inherit;
-  background: black;
-  line-height: 1.1em;
-  display: inline-flex;
-  color: var(--color-2);
-}
-
-.material-icons {
-  font-size: 2.4em; /* Preferred icon size */
 }
 
 .horizontal-ruler {
@@ -109,13 +69,13 @@ h3 {
   float: right;
   margin-left: 20px;
   margin-right: 20px;
-  background: var(--color-2);
-  color: var(--text-color-2);
-  padding: 20px;
-  border: solid thin black;
 }
 
-.operation-button:hover {
+.btn {
+  background: silver;
+}
+
+.btn:hover {
   background: forestgreen !important;
   cursor: pointer !important;
 }
@@ -126,32 +86,6 @@ h3 {
 
 .radio-icon {
   height: 30px;
-}
-
-.rule-table {
-  border: solid thin var(--color-0);
-  width: 100%;
-  max-width: 100%;
-  margin-top: 30px;
-  border-collapse: collapse;
-}
-
-.rule-table th {
-  color: black;
-  background: var(--color-2);
-}
-
-.rule-table table, th, td {
-  border: thin black solid;
-}
-
-.rule-table th, td {
-  padding: 5px 10px;
-  text-align: center;
-}
-
-.rule-table i, label {
-  margin: auto;
 }
 
 .assignment-active-container {
@@ -181,4 +115,38 @@ h3 {
 .material-icons:hover {
   color: maroon !important;
   cursor: pointer !important;
+}
+
+.material-icons {
+  color: black;
+  font-size: 2rem;
+}
+
+.table th {
+  border-top: solid 1px #b4c0ff;
+}
+
+.table td, th {
+  border-bottom: solid 1px #b4c0ff;
+}
+
+.btn {
+  margin: 10px;
+}
+
+.control-label {
+  margin-top: 2rem;
+}
+
+.dark-section, .light-section {
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+}
+
+.dark-section {
+  background: #dfebe8;
+}
+
+.light-section {
+  background: #eaf6d1;
 }

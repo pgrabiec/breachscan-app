@@ -7,10 +7,4 @@ import {AppRouting} from './app-routing';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Breach Scan';
-
-  homeRoute = AppRouting.home;
-  machinesRoute = AppRouting.confMachines;
-  rulesRoute = AppRouting.confRules;
-  stateRoute = AppRouting.state;
 }

@@ -3,12 +3,12 @@
 
   <div class="operation-container">
     <h3 class="operation-header">Current monitoring state</h3>
-    <div class="operation-button" (click)="forceUpdate()">Force update</div>
-    <div class="operation-button" (click)="stopAllMonitoring()">Stop</div>
+    <button class="operation-button btn" (click)="forceUpdate()">Force update</button>
+    <button class="operation-button btn" (click)="stopAllMonitoring()">Stop</button>
     <div style="clear: both"></div>
   </div>
 
-  <table class="rule-table" id="state" *ngIf="states">
+  <table class="table" id="state" *ngIf="states">
     <tr>
       <th>Machine name</th>
       <th>Container name</th>

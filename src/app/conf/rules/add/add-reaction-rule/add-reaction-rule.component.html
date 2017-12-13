@@ -1,33 +1,33 @@
 <div *ngIf="anyInputReactionRule">
   <h1>Create reaction rule</h1>
 
-  <hr class="horizontal-ruler">
+  <div class="light-section form-group">
+    <h3>Add reaction rule for any input event</h3>
 
-  <h3>Add reaction rule for any event of input type</h3>
+    <div>
+      <label class="control-label">Name</label>
+      <input class="form-control" [(ngModel)]="anyInputReactionRule.name" placeholder="name">
+    </div>
 
-  <div class="form-group">
-    <label>Name</label>
-    <input [(ngModel)]="anyInputReactionRule.name" placeholder="name">
+    <div>
+      <label class="control-label">Description</label>
+      <input class="form-control" [(ngModel)]="anyInputReactionRule.description" placeholder="description">
+    </div>
+
+    <div>
+      <label class="control-label" for="input">Input event type</label>
+      <select class="form-control" id="input" [(ngModel)]="anyInputReactionRule.input" required>
+        <option *ngFor="let inputType of inputTypes" [value]="inputType">{{inputType}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="reaction">Reaction type</label>
+      <select class="form-control" id="reaction" [(ngModel)]="anyInputReactionRule.output" required>
+        <option *ngFor="let reactionType of reactionTypes" [value]="reactionType">{{reactionType}}</option>
+      </select>
+    </div>
+
+    <button class="btn" (click)="saveAnyInputReactionRule()">Save</button>
   </div>
-
-  <div class="form-group">
-    <label>Description</label>
-    <input [(ngModel)]="anyInputReactionRule.description" placeholder="description">
-  </div>
-
-  <div class="form-group">
-    <label for="input">Input event type</label>
-    <select id="input" [(ngModel)]="anyInputReactionRule.input" required>
-      <option *ngFor="let inputType of inputTypes" [value]="inputType">{{inputType}}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="reaction">Reaction type</label>
-    <select id="reaction" [(ngModel)]="anyInputReactionRule.output" required>
-      <option *ngFor="let reactionType of reactionTypes" [value]="reactionType">{{reactionType}}</option>
-    </select>
-  </div>
-
-  <div id="save" class="form-group-save" (click)="saveAnyInputReactionRule()">Save</div>
 </div>

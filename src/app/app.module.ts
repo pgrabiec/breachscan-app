@@ -7,11 +7,10 @@ import {MachinesConfigurationComponent} from './conf/machines/machines-configura
 import {MachineService} from './services/conf/machine/machine-service/machine.service';
 import {MessageService} from './services/misc/message-service/message.service';
 import {AppRoutingModule} from './/app-routing.module';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './misc/home/home.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ContainerService} from './services/conf/machine/container/container-service/container.service';
 import {ErrorHandlerService} from './services/misc/error-handler/error-handler.service';
-import {IdComponent} from './id/id.component';
 import {MachineConfigurationComponent} from './conf/machines/machine-configuration/machine-configuration.component';
 import {ToasterConfig, ToasterModule} from 'angular2-toaster';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -36,13 +35,13 @@ import {AddDetectionRuleComponent} from './conf/rules/add/add-detection-rule/add
 import {AddReactionRuleComponent} from './conf/rules/add/add-reaction-rule/add-reaction-rule.component';
 import { ShowStateComponent } from './state/show-state/show-state.component';
 import {StateService} from './services/state/state.service';
+import { NavigationComponent } from './misc/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MachinesConfigurationComponent,
     HomeComponent,
-    IdComponent,
     MachineConfigurationComponent,
     ConfAddMachineComponent,
     ConfAddContainerComponent,
@@ -59,7 +58,8 @@ import {StateService} from './services/state/state.service';
     AddInteractionRuleComponent,
     AddDetectionRuleComponent,
     AddReactionRuleComponent,
-    ShowStateComponent
+    ShowStateComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

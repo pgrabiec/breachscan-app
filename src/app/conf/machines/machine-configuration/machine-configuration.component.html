@@ -1,40 +1,47 @@
 <div *ngIf="machine" class="container">
   <h1>Machine {{machine.address}} configuration</h1>
-  <div>
-    <div class="form-group">
-      <label>Address</label>
-      <input [(ngModel)]="machine.address" placeholder="address" disabled>
+  <div class="form-group">
+    <div>
+      <label class="control-label">Address</label>
+      <input class="form-control" [(ngModel)]="machine.address" disabled>
+    </div>
+    <div>
+      <label class="control-label">Name</label>
+      <input class="form-control" [(ngModel)]="machine.name" placeholder="name">
     </div>
 
-    <div class="form-group">
-      <label>Name</label>
-      <input [(ngModel)]="machine.name" placeholder="name">
+    <div>
+      <label class="control-label" for="description">Description</label>
+      <input class="form-control" id="description" [(ngModel)]="machine.description" placeholder="description">
     </div>
 
-    <div class="form-group">
-      <label>Description</label>
-      <input [(ngModel)]="machine.description" placeholder="description">
-    </div>
-
-    <div id="update" class="form-group-save" (click)="updateMachine()">Update</div>
-    <div id="reset" class="form-group-save" (click)="resetMachine()">Reset</div>
+    <button class="btn" (click)="updateMachine()">Update</button>
+    <button class="btn" (click)="resetMachine()">Reset</button>
   </div>
 
-  <hr class="horizontal-ruler">
-
-  <div class="operation-container">
-    <h2 class="operation-header">Containers of machine {{machine.address}}</h2>
-    <div class="operation-button" routerLink="/{{addContainerRoute}}">New</div>
-    <div style="clear: both"></div>
+  <div class="light-section">
+    <div class="operation-container">
+      <h2 class="operation-header">Containers of machine {{machine.address}}</h2>
+      <button class="operation-button btn" routerLink="/{{addContainerRoute}}">New</button>
+      <div style="clear: both"></div>
+    </div>
+    <table class="table">
+      <tr>
+        <td>Name</td>
+        <td>ID</td>
+        <td>Details & edit</td>
+        <td>Delete</td>
+      </tr>
+      <tr *ngFor="let container of containers">
+        <td>{{container.name}}</td>
+        <td>{{container.id}}</td>
+        <td>
+          <i class="material-icons" routerLink="/{{containersRoute}}/{{container.id}}">more_horiz</i>
+        </td>
+        <td>
+          <i class="material-icons" (click)="deleteContainer(machine.address, container.id)">delete_forever</i>
+        </td>
+      </tr>
+    </table>
   </div>
-  <ul id="containers" *ngIf="containers" class="horizontal-list">
-    <li *ngFor="let container of containers" id="machine">
-      <i id="delete" (click)="deleteContainer(machine.address, container.id)" class="delete-button material-icons">delete_forever</i>
-      <app-id
-        routerLink="/{{containersRoute}}/{{container.id}}"
-        [id]="container.id"
-        [name]="container.name">
-      </app-id>
-    </li>
-  </ul>
 </div>

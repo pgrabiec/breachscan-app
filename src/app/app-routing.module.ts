@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MachinesConfigurationComponent} from './conf/machines/machines-configuration/machines.configuration.component';
 import {AppRouting} from './app-routing';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './misc/home/home.component';
 import {MachineConfigurationComponent} from './conf/machines/machine-configuration/machine-configuration.component';
 import {ConfAddMachineComponent} from './conf/machines/conf-add-machine/conf-add-machine.component';
 import {ConfAddContainerComponent} from './conf/machines/containers/conf-add-container/conf-add-container.component';

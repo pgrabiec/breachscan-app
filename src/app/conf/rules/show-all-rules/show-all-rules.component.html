@@ -1,81 +1,85 @@
 <div>
-  <div class="operation-container">
-    <h2 class="operation-header">All interaction rules</h2>
-    <div class="operation-button" routerLink="/{{addInteractionRoute}}">New</div>
-    <div style="clear: both"></div>
+  <h1>All assignable rules</h1>
+
+  <div class="light-section">
+    <div class="operation-container">
+      <h2 class="operation-header">Interaction rules</h2>
+      <button class="operation-button btn" routerLink="/{{addInteractionRoute}}">New</button>
+      <div style="clear: both"></div>
+    </div>
+
+    <table class="table">
+      <tr>
+        <th>Rule name</th>
+        <th>Type</th>
+        <th>Details & Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr *ngFor="let interactionRule of interactionRules">
+        <td>{{interactionRule.name}}</td>
+        <td>{{interactionRule.type}}</td>
+        <td routerLink="/{{showInteractionRoute}}/{{interactionRule.id}}">
+          <i class="edit-icon, material-icons">more_horiz</i>
+        </td>
+        <td (click)="deleteInteractionRule(interactionRule.id)">
+          <i class="edit-icon, material-icons">delete_forever</i>
+        </td>
+      </tr>
+    </table>
   </div>
 
-  <table class="rule-table">
-    <tr>
-      <th>Rule name</th>
-      <th>Type</th>
-      <th>Details & Edit</th>
-      <th>Delete</th>
-    </tr>
-    <tr *ngFor="let interactionRule of interactionRules">
-      <td>{{interactionRule.name}}</td>
-      <td>{{interactionRule.type}}</td>
-      <td routerLink="/{{showInteractionRoute}}/{{interactionRule.id}}">
-        <i class="edit-icon, material-icons">more_horiz</i>
-      </td>
-      <td (click)="deleteInteractionRule(interactionRule.id)">
-        <i class="edit-icon, material-icons">delete_forever</i>
-      </td>
-    </tr>
-  </table>
+  <div class="dark-section">
+    <div class="operation-container">
+      <h2 class="operation-header">Detection rules</h2>
+      <button class="operation-button btn" routerLink="/{{addDetectionRoute}}">New</button>
+      <div style="clear: both"></div>
+    </div>
 
-  <hr class="horizontal-ruler">
-
-  <div class="operation-container">
-    <h2 class="operation-header">All detection rules</h2>
-    <div class="operation-button" routerLink="/{{addDetectionRoute}}">New</div>
-    <div style="clear: both"></div>
+    <table class="table">
+      <tr>
+        <th>Rule name</th>
+        <th>Type</th>
+        <th>Details & Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr *ngFor="let detectionRule of detectionRules">
+        <td>{{detectionRule.name}}</td>
+        <td>{{detectionRule.type}}</td>
+        <td routerLink="/{{showDetectionRoute}}/{{detectionRule.id}}">
+          <i class="edit-icon, material-icons">more_horiz</i>
+        </td>
+        <td (click)="deleteDetectionRule(detectionRule.id)">
+          <i class="edit-icon, material-icons">delete_forever</i>
+        </td>
+      </tr>
+    </table>
   </div>
 
-  <table class="rule-table">
-    <tr>
-      <th>Rule name</th>
-      <th>Type</th>
-      <th>Details & Edit</th>
-      <th>Delete</th>
-    </tr>
-    <tr *ngFor="let detectionRule of detectionRules">
-      <td>{{detectionRule.name}}</td>
-      <td>{{detectionRule.type}}</td>
-      <td routerLink="/{{showDetectionRoute}}/{{detectionRule.id}}">
-        <i class="edit-icon, material-icons">more_horiz</i>
-      </td>
-      <td (click)="deleteDetectionRule(detectionRule.id)">
-        <i class="edit-icon, material-icons">delete_forever</i>
-      </td>
-    </tr>
-  </table>
+  <div class="light-section">
+    <div class="operation-container">
+      <h2 class="operation-header">Reaction rules</h2>
+      <button class="operation-button btn" routerLink="/{{addReactionRoute}}">New</button>
+      <div style="clear: both"></div>
+    </div>
 
-  <hr class="horizontal-ruler">
-
-  <div class="operation-container">
-    <h2 class="operation-header">All reaction rules</h2>
-    <div class="operation-button" routerLink="/{{addReactionRoute}}">New</div>
-    <div style="clear: both"></div>
+    <table class="table">
+      <tr>
+        <th>Rule name</th>
+        <th>Type</th>
+        <th>Details & Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr *ngFor="let reactionRule of reactionRules">
+        <td>{{reactionRule.name}}</td>
+        <td>{{reactionRule.type}}</td>
+        <td routerLink="/{{showReactionRoute}}/{{reactionRule.id}}">
+          <i class="edit-icon, material-icons">more_horiz</i>
+        </td>
+        <td (click)="deleteReactionRule(reactionRule.id)">
+          <i class="edit-icon, material-icons">delete_forever</i>
+        </td>
+      </tr>
+    </table>
   </div>
-
-  <table class="rule-table">
-    <tr>
-      <th>Rule name</th>
-      <th>Type</th>
-      <th>Details & Edit</th>
-      <th>Delete</th>
-    </tr>
-    <tr *ngFor="let reactionRule of reactionRules">
-      <td>{{reactionRule.name}}</td>
-      <td>{{reactionRule.type}}</td>
-      <td routerLink="/{{showReactionRoute}}/{{reactionRule.id}}">
-        <i class="edit-icon, material-icons">more_horiz</i>
-      </td>
-      <td (click)="deleteReactionRule(reactionRule.id)">
-        <i class="edit-icon, material-icons">delete_forever</i>
-      </td>
-    </tr>
-  </table>
 
 </div>

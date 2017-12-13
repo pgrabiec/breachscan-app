@@ -2,179 +2,180 @@
   <div id="containerConf">
     <h1>Container configuration: {{container.name}} ({{container.id}})</h1>
     <h3>Machine {{machineAddress}}</h3>
-    <div class="form-group">
-      <label>Id</label>
-      <input [(ngModel)]="container.id" placeholder="id" disabled>
-    </div>
 
     <div class="form-group">
-      <label>Name</label>
-      <input [(ngModel)]="container.name" placeholder="name">
-    </div>
+      <div>
+        <label class="control-label">Id</label>
+        <input class="form-control" [(ngModel)]="container.id" placeholder="id" disabled>
+      </div>
 
-    <div class="form-group">
-      <label>Description</label>
-      <input [(ngModel)]="container.description" placeholder="description">
-    </div>
+      <div>
+        <label class="control-label">Name</label>
+        <input class="form-control" [(ngModel)]="container.name" placeholder="name">
+      </div>
 
-    <div id="update" class="form-group-save" (click)="updateContainer()">Update</div>
-    <div id="reset" class="form-group-save" (click)="resetContainer()">Reset</div>
+      <div>
+        <label class="control-label">Description</label>
+        <input class="form-control" [(ngModel)]="container.description" placeholder="description">
+      </div>
+
+      <button class="btn" (click)="updateContainer()">Update</button>
+      <button class="btn" (click)="resetContainer()">Reset</button>
+    </div>
   </div>
 
-  <hr class="horizontal-ruler">
+  <div>
+    <h2>Monitoring rules</h2>
 
-  <h2>Monitoring rules</h2>
+    <div class="light-section">
 
-  <hr class="horizontal-ruler">
+      <div class="operation-container">
+        <h3 class="operation-header">Interaction rules</h3>
+        <button class="operation-button btn" routerLink="/{{assignInteractionRuleRoute}}">Assign...</button>
+        <div style="clear: both"></div>
+      </div>
 
-  <div id="interaction">
-
-    <div class="operation-container">
-      <h3 class="operation-header">Interaction rules</h3>
-      <div class="operation-button" routerLink="/{{assignInteractionRuleRoute}}">Assign...</div>
-      <div style="clear: both"></div>
+      <table class="table" *ngIf="interactions">
+        <tr>
+          <th>Rule name</th>
+          <th>Assignment active?</th>
+          <th>Details & Edit</th>
+          <th>Remove</th>
+        </tr>
+        <tr *ngFor="let interactionAssignment of interactions">
+          <td>{{interactionAssignment.configuration.name}}</td>
+          <td>
+            <div [ngSwitch]="interactionAssignment.active" class="assignment-active">
+              <div *ngSwitchCase="true" class="assignment-active-container">
+                <label style="float: left">active</label>
+                <i
+                  style="float: left"
+                  class="radio-icon, material-icons"
+                  (click)="updateInteractionAssignment(interactionAssignment.configuration.id, false)">
+                  radio_button_checked</i>
+              </div>
+              <div *ngSwitchCase="false" class="assignment-active-container">
+                <label style="float: left">idle</label>
+                <i
+                  style="float: left"
+                  class="radio-icon, material-icons"
+                  (click)="updateInteractionAssignment(interactionAssignment.configuration.id, true)">
+                  radio_button_unchecked</i>
+              </div>
+              <div style="clear: both"></div>
+            </div>
+          </td>
+          <td>
+            <i class="edit-icon, material-icons"
+               routerLink="/{{interactionRulesRoute}}/{{interactionAssignment.configuration.id}}">
+              more_horiz</i>
+          </td>
+          <td>
+            <i class="edit-icon, material-icons" (click)="removeInteractionRule(interactionAssignment.configuration.id)">
+              delete_forever</i>
+          </td>
+        </tr>
+      </table>
     </div>
 
-    <table class="rule-table" id="interactions" *ngIf="interactions">
-      <tr>
-        <th>Rule name</th>
-        <th>Assignment active?</th>
-        <th>Details & Edit</th>
-        <th>Remove</th>
-      </tr>
-      <tr *ngFor="let interactionAssignment of interactions">
-        <td>{{interactionAssignment.configuration.name}}</td>
-        <td>
-          <div [ngSwitch]="interactionAssignment.active" class="assignment-active">
-            <div *ngSwitchCase="true" class="assignment-active-container">
-              <label style="float: left">active</label>
-              <i
-                style="float: left"
-                class="radio-icon, material-icons"
-                (click)="updateInteractionAssignment(interactionAssignment.configuration.id, false)">
-                radio_button_checked</i>
-            </div>
-            <div *ngSwitchCase="false" class="assignment-active-container">
-              <label style="float: left">idle</label>
-              <i
-                style="float: left"
-                class="radio-icon, material-icons"
-                (click)="updateInteractionAssignment(interactionAssignment.configuration.id, true)">
-                radio_button_unchecked</i>
-            </div>
-            <div style="clear: both"></div>
-          </div>
-        </td>
-        <td>
-          <i class="edit-icon, material-icons"
-             routerLink="/{{interactionRulesRoute}}/{{interactionAssignment.configuration.id}}">
-            more_horiz</i>
-        </td>
-        <td>
-          <i class="edit-icon, material-icons" (click)="removeInteractionRule(interactionAssignment.configuration.id)">
-            delete_forever</i>
-        </td>
-      </tr>
-    </table>
+    <div class="dark-section">
+      <div class="operation-container">
+        <h3 class="operation-header">Detection rules</h3>
+        <button class="operation-button btn" routerLink="/{{assignDetectionRuleRoute}}">Assign...</button>
+        <div style="clear: both"></div>
+      </div>
 
-    <hr class="horizontal-ruler">
-
-    <div class="operation-container">
-      <h3 class="operation-header">Detection rules</h3>
-      <div class="operation-button" routerLink="/{{assignDetectionRuleRoute}}">Assign...</div>
-      <div style="clear: both"></div>
+      <table class="table" id="detections" *ngIf="detections">
+        <tr>
+          <th>Rule name</th>
+          <th>Assignment active?</th>
+          <th>Details & Edit</th>
+          <th>Remove</th>
+        </tr>
+        <tr *ngFor="let detectionAssignment of detections">
+          <td>{{detectionAssignment.configuration.name}}</td>
+          <td>
+            <div [ngSwitch]="detectionAssignment.active" class="assignment-active">
+              <div *ngSwitchCase="true" class="assignment-active-container">
+                <label style="float: left">active</label>
+                <i
+                  style="float: left"
+                  class="radio-icon, material-icons"
+                  (click)="updateDetectionAssignment(detectionAssignment.configuration.id, false)">
+                  radio_button_checked</i>
+              </div>
+              <div *ngSwitchCase="false" class="assignment-active-container">
+                <label style="float: left">idle</label>
+                <i
+                  style="float: left"
+                  class="radio-icon, material-icons"
+                  (click)="updateDetectionAssignment(detectionAssignment.configuration.id, true)">
+                  radio_button_unchecked</i>
+              </div>
+              <div style="clear: both"></div>
+            </div>
+          </td>
+          <td>
+            <i class="edit-icon, material-icons"
+               routerLink="/{{detectionRulesRoute}}/{{detectionAssignment.configuration.id}}">
+              more_horiz</i>
+          </td>
+          <td>
+            <i class="edit-icon, material-icons" (click)="removeDetectionRule(detectionAssignment.configuration.id)">
+              delete_forever</i>
+          </td>
+        </tr>
+      </table>
     </div>
 
-    <table class="rule-table" id="detections" *ngIf="detections">
-      <tr>
-        <th>Rule name</th>
-        <th>Assignment active?</th>
-        <th>Details & Edit</th>
-        <th>Remove</th>
-      </tr>
-      <tr *ngFor="let detectionAssignment of detections">
-        <td>{{detectionAssignment.configuration.name}}</td>
-        <td>
-          <div [ngSwitch]="detectionAssignment.active" class="assignment-active">
-            <div *ngSwitchCase="true" class="assignment-active-container">
-              <label style="float: left">active</label>
-              <i
-                style="float: left"
-                class="radio-icon, material-icons"
-                (click)="updateDetectionAssignment(detectionAssignment.configuration.id, false)">
-                radio_button_checked</i>
-            </div>
-            <div *ngSwitchCase="false" class="assignment-active-container">
-              <label style="float: left">idle</label>
-              <i
-                style="float: left"
-                class="radio-icon, material-icons"
-                (click)="updateDetectionAssignment(detectionAssignment.configuration.id, true)">
-                radio_button_unchecked</i>
-            </div>
-            <div style="clear: both"></div>
-          </div>
-        </td>
-        <td>
-          <i class="edit-icon, material-icons"
-             routerLink="/{{detectionRulesRoute}}/{{detectionAssignment.configuration.id}}">
-            more_horiz</i>
-        </td>
-        <td>
-          <i class="edit-icon, material-icons" (click)="removeDetectionRule(detectionAssignment.configuration.id)">
-            delete_forever</i>
-        </td>
-      </tr>
-    </table>
+    <div class="light-section">
+      <div class="operation-container">
+        <h3 class="operation-header">Reaction rules</h3>
+        <button class="operation-button btn" routerLink="/{{assignReactionRuleRoute}}">Assign...</button>
+        <div style="clear: both"></div>
+      </div>
 
-    <hr class="horizontal-ruler">
-
-    <div class="operation-container">
-      <h3 class="operation-header">Reaction rules</h3>
-      <div class="operation-button" routerLink="/{{assignReactionRuleRoute}}">Assign...</div>
-      <div style="clear: both"></div>
+      <table class="table" id="reactions" *ngIf="reactions">
+        <tr>
+          <th>Rule name</th>
+          <th>Assignment active?</th>
+          <th>Details & Edit</th>
+          <th>Remove</th>
+        </tr>
+        <tr *ngFor="let reactionAssignment of reactions">
+          <td>{{reactionAssignment.configuration.name}}</td>
+          <td>
+            <div [ngSwitch]="reactionAssignment.active" class="assignment-active">
+              <div *ngSwitchCase="true" class="assignment-active-container">
+                <label style="float: left">active</label>
+                <i
+                  style="float: left"
+                  class="radio-icon, material-icons"
+                  (click)="updateReactionAssignment(reactionAssignment.configuration.id, false)">
+                  radio_button_checked</i>
+              </div>
+              <div *ngSwitchCase="false" class="assignment-active-container">
+                <label style="float: left">idle</label>
+                <i
+                  style="float: left"
+                  class="radio-icon, material-icons"
+                  (click)="updateReactionAssignment(reactionAssignment.configuration.id, true)">
+                  radio_button_unchecked</i>
+              </div>
+              <div style="clear: both"></div>
+            </div>
+          </td>
+          <td>
+            <i class="edit-icon, material-icons"
+               routerLink="/{{reactionRulesRoute}}/{{reactionAssignment.configuration.id}}">
+              more_horiz</i>
+          </td>
+          <td>
+            <i class="edit-icon, material-icons" (click)="removeReactionRule(reactionAssignment.configuration.id)">
+              delete_forever</i>
+          </td>
+        </tr>
+      </table>
     </div>
-
-    <table class="rule-table" id="reactions" *ngIf="reactions">
-      <tr>
-        <th>Rule name</th>
-        <th>Assignment active?</th>
-        <th>Details & Edit</th>
-        <th>Remove</th>
-      </tr>
-      <tr *ngFor="let reactionAssignment of reactions">
-        <td>{{reactionAssignment.configuration.name}}</td>
-        <td>
-          <div [ngSwitch]="reactionAssignment.active" class="assignment-active">
-            <div *ngSwitchCase="true" class="assignment-active-container">
-              <label style="float: left">active</label>
-              <i
-                style="float: left"
-                class="radio-icon, material-icons"
-                (click)="updateReactionAssignment(reactionAssignment.configuration.id, false)">
-                radio_button_checked</i>
-            </div>
-            <div *ngSwitchCase="false" class="assignment-active-container">
-              <label style="float: left">idle</label>
-              <i
-                style="float: left"
-                class="radio-icon, material-icons"
-                (click)="updateReactionAssignment(reactionAssignment.configuration.id, true)">
-                radio_button_unchecked</i>
-            </div>
-            <div style="clear: both"></div>
-          </div>
-        </td>
-        <td>
-          <i class="edit-icon, material-icons"
-             routerLink="/{{reactionRulesRoute}}/{{reactionAssignment.configuration.id}}">
-            more_horiz</i>
-        </td>
-        <td>
-          <i class="edit-icon, material-icons" (click)="removeReactionRule(reactionAssignment.configuration.id)">
-            delete_forever</i>
-        </td>
-      </tr>
-    </table>
   </div>
 </div>

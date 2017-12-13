@@ -1,24 +1,26 @@
 <div>
   <h1>Create detection rule</h1>
 
-  <hr class="horizontal-ruler">
+  <div class="light-section">
+    <h3>Add exec detection rule</h3>
 
-  <h3>Add exec detection rule</h3>
+    <div class="form-group">
+      <div>
+        <label class="control-label">Name</label>
+        <input class="form-control" [(ngModel)]="execDetectionRule.name" placeholder="name">
+      </div>
 
-  <div class="form-group">
-    <label>Name</label>
-    <input [(ngModel)]="execDetectionRule.name" placeholder="name">
+      <div>
+        <label class="control-label">Description</label>
+        <input class="form-control" [(ngModel)]="execDetectionRule.description" placeholder="description">
+      </div>
+
+      <div>
+        <label class="control-label">Keyword to detect in the command</label>
+        <input class="form-control" [(ngModel)]="execDetectionRule.properties['exec_name']" placeholder="keyword">
+      </div>
+
+      <button class="btn" (click)="saveExecDetectionRule()">Save</button>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label>Description</label>
-    <input [(ngModel)]="execDetectionRule.description" placeholder="description">
-  </div>
-
-  <div class="form-group">
-    <label>Keyword to detect in the command</label>
-    <input [(ngModel)]="execDetectionRule.properties['exec_name']" placeholder="keyword">
-  </div>
-
-  <div id="save" class="form-group-save" (click)="saveExecDetectionRule()">Save</div>
 </div>

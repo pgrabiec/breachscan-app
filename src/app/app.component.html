@@ -1,40 +1,8 @@
 <toaster-container [toasterconfig]="toastConfig" id="toast"></toaster-container>
 <div id="root">
-  <div id="title">
-    <h1>Breachscan</h1>
-  </div>
-
-  <div id="navigation">
-
-    <div routerLink="{{homeRoute}}" class="menu-item" id="home">
-      <a class="menu-text">
-        <i class="material-icons">home</i>
-      </a>
-    </div>
-
-    <div routerLink="{{machinesRoute}}" class="menu-item" id="machines">
-      <a class="menu-text">machines</a>
-    </div>
-    <div routerLink="{{rulesRoute}}" class="menu-item" id="rules">
-      <a class="menu-text">rules</a>
-    </div>
-    <div routerLink="{{stateRoute}}" class="menu-item" id="monitor">
-      <a class="menu-text">monitor</a>
-    </div>
-    <div class="menu-item" id="events">
-      <a class="menu-text">events</a>
-    </div>
-    <div style="clear: both"></div>
-
-  </div>
+  <app-navigation></app-navigation>
 
   <div id="content">
     <router-outlet></router-outlet>
-  </div>
-
-  <div id="footer">
-    <a class="footer-text">
-      Breachscan engineering project
-    </a>
   </div>
 </div>
