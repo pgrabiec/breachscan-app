@@ -33,15 +33,19 @@ import {ConfigureReactionComponent} from './conf/rules/rule/configure-reaction/c
 import {AddInteractionRuleComponent} from './conf/rules/add/add-interaction-rule/add-interaction-rule.component';
 import {AddDetectionRuleComponent} from './conf/rules/add/add-detection-rule/add-detection-rule.component';
 import {AddReactionRuleComponent} from './conf/rules/add/add-reaction-rule/add-reaction-rule.component';
-import { ShowStateComponent } from './state/show-state/show-state.component';
+import {ShowStateComponent} from './state/show-state/show-state.component';
 import {StateService} from './services/state/state.service';
-import { NavigationComponent } from './misc/navigation/navigation.component';
+import {NavigationComponent} from './misc/navigation/navigation.component';
 import {RuleStateFilter} from './filters/TextFilter';
 import {EventService} from './services/events/event-service/event.service';
-import { EventsComponent } from './events/events.component';
-import { InteractionEventsComponent } from './events/interaction/interaction-events/interaction-events.component';
-import { DetectionEventsComponent } from './events/detection/detection-events/detection-events.component';
-import { ReactionEventsComponent } from './events/reaction/reaction-events/reaction-events.component';
+import {EventsComponent} from './events/events.component';
+import {InteractionEventsComponent} from './events/interaction/interaction-events/interaction-events.component';
+import {DetectionEventsComponent} from './events/detection/detection-events/detection-events.component';
+import {ReactionEventsComponent} from './events/reaction/reaction-events/reaction-events.component';
+import {WebsocketService} from './services/websocket/websocket.service';
+import {WebsocketInteractionService} from './services/websocket/interaction/websocker-interaction.service';
+import {WebsocketReactionService} from "./services/websocket/reaction/websocket-reaction.service";
+import {WebsocketDetectionService} from './services/websocket/detection/websocket-detection.service';
 
 @NgModule({
   declarations: [
@@ -94,7 +98,11 @@ import { ReactionEventsComponent } from './events/reaction/reaction-events/react
     ContainerRulesService,
     RulesService,
     StateService,
-    EventService
+    EventService,
+    WebsocketService,
+    WebsocketInteractionService,
+    WebsocketDetectionService,
+    WebsocketReactionService
   ],
   bootstrap: [AppComponent],
   exports: [
