@@ -63,6 +63,11 @@ export class ApiRouting {
   static stateModulesDetection = ApiRouting.stateModules + '/detection';
   static stateModulesReaction = ApiRouting.stateModules + '/reaction';
 
+  static events = '/events';
+  static interactionEvents = ApiRouting.events + '/interaction';
+  static detectionEvents = ApiRouting.events + '/detection';
+  static reactionEvents = ApiRouting.events + '/reaction';
+
   // Path replacement utils
 
   static replaceMachineAddress(routingPath: string, machineAddress: string): string {

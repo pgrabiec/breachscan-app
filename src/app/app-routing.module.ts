@@ -18,6 +18,10 @@ import {AddInteractionRuleComponent} from './conf/rules/add/add-interaction-rule
 import {AddDetectionRuleComponent} from './conf/rules/add/add-detection-rule/add-detection-rule.component';
 import {AddReactionRuleComponent} from './conf/rules/add/add-reaction-rule/add-reaction-rule.component';
 import {ShowStateComponent} from './state/show-state/show-state.component';
+import {EventsComponent} from './events/events.component';
+import {InteractionEventsComponent} from './events/interaction/interaction-events/interaction-events.component';
+import {DetectionEventsComponent} from './events/detection/detection-events/detection-events.component';
+import {ReactionEventsComponent} from './events/reaction/reaction-events/reaction-events.component';
 
 const routes: Routes = [
   { path: '', redirectTo: AppRouting.home, pathMatch: 'full' },
@@ -37,7 +41,11 @@ const routes: Routes = [
   { path: AppRouting.confDetectionId, component: ConfigureDetectionComponent },
   { path: AppRouting.confAddReaction, component: AddReactionRuleComponent },
   { path: AppRouting.confReactionId, component: ConfigureReactionComponent },
-  { path: AppRouting.state, component: ShowStateComponent }
+  { path: AppRouting.state, component: ShowStateComponent },
+  { path: AppRouting.events, component: EventsComponent },
+  { path: AppRouting.interactionEvents, component: InteractionEventsComponent },
+  { path: AppRouting.detectionEvents, component: DetectionEventsComponent },
+  { path: AppRouting.reactionEvents, component: ReactionEventsComponent }
 ];
 
 @NgModule({

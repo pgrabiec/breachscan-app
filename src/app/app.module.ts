@@ -36,6 +36,12 @@ import {AddReactionRuleComponent} from './conf/rules/add/add-reaction-rule/add-r
 import { ShowStateComponent } from './state/show-state/show-state.component';
 import {StateService} from './services/state/state.service';
 import { NavigationComponent } from './misc/navigation/navigation.component';
+import {RuleStateFilter} from './filters/TextFilter';
+import {EventService} from './services/events/event-service/event.service';
+import { EventsComponent } from './events/events.component';
+import { InteractionEventsComponent } from './events/interaction/interaction-events/interaction-events.component';
+import { DetectionEventsComponent } from './events/detection/detection-events/detection-events.component';
+import { ReactionEventsComponent } from './events/reaction/reaction-events/reaction-events.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +65,12 @@ import { NavigationComponent } from './misc/navigation/navigation.component';
     AddDetectionRuleComponent,
     AddReactionRuleComponent,
     ShowStateComponent,
-    NavigationComponent
+    NavigationComponent,
+    RuleStateFilter,
+    EventsComponent,
+    InteractionEventsComponent,
+    DetectionEventsComponent,
+    ReactionEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -82,9 +93,13 @@ import { NavigationComponent } from './misc/navigation/navigation.component';
     ToastService,
     ContainerRulesService,
     RulesService,
-    StateService
+    StateService,
+    EventService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    RuleStateFilter
+  ]
 })
 export class AppModule {
   public toastConfig: ToasterConfig = new ToasterConfig({

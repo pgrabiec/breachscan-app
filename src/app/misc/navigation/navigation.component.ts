@@ -11,6 +11,7 @@ export class NavigationComponent implements OnInit {
   machinesRoute = AppRouting.confMachines;
   rulesRoute = AppRouting.confRules;
   stateRoute = AppRouting.state;
+  eventsRoute = AppRouting.events;
 
   constructor() {
   }

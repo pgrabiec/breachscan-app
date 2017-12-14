@@ -1,4 +1,4 @@
-// Generated using typescript-generator version 1.30.381 on 2017-12-12 19:23:48.
+// Generated using typescript-generator version 1.30.381 on 2017-12-14 11:48:08.
 
 export namespace Breachscan {
 
@@ -48,13 +48,11 @@ export namespace Breachscan {
   }
 
   export class DetectionEvent {
+    timestamp: number;
     address: string;
     id: string;
     type: DetectionEventType;
     properties: { [index: string]: string };
-  }
-
-  export class ExecDetectionEvent extends DetectionEvent {
   }
 
   export class DetectionRule {
@@ -72,13 +70,11 @@ export namespace Breachscan {
   }
 
   export class InteractionData {
+    timestamp: number;
     address: string;
     id: string;
     type: InteractionDataType;
     properties: { [index: string]: string };
-  }
-
-  export class ExecInteractionData extends InteractionData {
   }
 
   export class InteractionRule {
@@ -99,14 +95,21 @@ export namespace Breachscan {
     properties: { [index: string]: string };
   }
 
-  export class AnyInputEventReactionRule extends ReactionRule {
-  }
-
-  export class ReactionRuleImplementation {
+  export class ReactionEvent {
+    timestamp: number;
+    machine: string;
+    container: string;
+    rule: string;
+    reaction: ReactionType;
   }
 
   export class ErrorResponse {
     message: string;
+  }
+
+  export class Identifier {
+    id: string;
+    name: string;
   }
 
   export class InteractionRequest {
@@ -119,6 +122,37 @@ export namespace Breachscan {
   export class RuleAssignmentRequest {
     active: boolean;
     rule: string;
+  }
+
+  export class DetectionEventInfo {
+    event: DetectionEvent;
+    machine: Identifier;
+    container: Identifier;
+  }
+
+  export class InteractionDataInfo {
+    data: InteractionData;
+    machine: Identifier;
+    container: Identifier;
+  }
+
+  export class ReactionEventInfo {
+    event: ReactionEvent;
+    machine: Identifier;
+    container: Identifier;
+  }
+
+  export class MonitoringState {
+    interaction: RuleMonitoringState[];
+    detection: RuleMonitoringState[];
+    reaction: RuleMonitoringState[];
+  }
+
+  export class RuleMonitoringState {
+    machine: Identifier;
+    container: Identifier;
+    rule: Identifier;
+    modules: string[];
   }
 
   export class BreachScanState {
@@ -176,9 +210,6 @@ export namespace Breachscan {
     reactionModulesOnline: string[];
   }
 
-  export class ImmutableUtils {
-  }
-
   export type DetectionEventType = 'EVENT_EXEC';
 
   export type DetectionRuleType = 'DETECT_EXEC_NAME';
@@ -188,4 +219,5 @@ export namespace Breachscan {
   export type ReactionRuleType = 'REACTION_ANY_INPUT_EVENT';
 
   export type ReactionType = 'REACTION_RESTART_CONTAINER';
+
 }

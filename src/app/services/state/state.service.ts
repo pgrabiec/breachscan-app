@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {Breachscan} from '../../model/breachscan-api';
 import {ApiRouting} from '../../api-routing';
 import {catchError} from 'rxjs/operators';
-import MachineState = Breachscan.MachineState;
+import MonitoringState = Breachscan.MonitoringState;
 
 @Injectable()
 export class StateService {
@@ -13,9 +13,9 @@ export class StateService {
               private errorHandler: ErrorHandlerService) {
   }
 
-  getState(): Observable<MachineState[]> {
-    return this.http.get<MachineState[]>(
-      ApiRouting.stateMachines
+  getState(): Observable<MonitoringState> {
+    return this.http.get<MonitoringState>(
+      ApiRouting.state
     )
       .pipe(catchError(
         this.errorHandler.handleError('get state', 200, null)

@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {StateService} from '../../services/state/state.service';
 import {ToastService, ToastType} from '../../services/misc/toast/toast.service';
-import {RuleStateInfo} from './RuleStateInfo';
+import {Breachscan} from '../../model/breachscan-api';
+import {RuleMonitoringStateInfo, RuleType} from './RuleMonitoringStateInfo';
+import MonitoringState = Breachscan.MonitoringState;
+import RuleMonitoringState = Breachscan.RuleMonitoringState;
 
 @Component({
   selector: 'app-show-state',
@@ -9,10 +12,19 @@ import {RuleStateInfo} from './RuleStateInfo';
   styleUrls: ['./show-state.component.css']
 })
 export class ShowStateComponent implements OnInit {
-  states: RuleStateInfo[];
+  states: RuleMonitoringStateInfo[];
+  state: MonitoringState;
+
+  machineFilter: string = null;
+  containerFilter: string = null;
+  ruleFilter: string = null;
+  modulesFilter: number = null;
+
+  filtersHidden = true;
 
   constructor(private stateService: StateService,
-              private toastService: ToastService) { }
+              private toastService: ToastService) {
+  }
 
   ngOnInit() {
     this.getState();
@@ -20,50 +32,47 @@ export class ShowStateComponent implements OnInit {
 
   getState() {
     this.stateService.getState()
-      .subscribe((machines) => {
-        this.states = [];
-        for (const machine of machines) {
-          for (const container of Object.values(machine.containers)) {
-            for (const interaction of Object.values(container.interactions)) {
-              this.states.push(new RuleStateInfo(
-                machine.machineAddress,
-                container.containerId,
-                interaction.interactionRuleId,
-                interaction.interactionModules.length.toString()
-              ));
-            }
-            for (const detection of Object.values(container.detections)) {
-              this.states.push(new RuleStateInfo(
-                machine.machineAddress,
-                container.containerId,
-                detection.detectionRuleId,
-                detection.detectionModules.length.toString()
-              ));
-            }
-            for (const reaction of Object.values(container.reactions)) {
-              this.states.push(new RuleStateInfo(
-                machine.machineAddress,
-                container.containerId,
-                reaction.reactionRuleId,
-                reaction.reactionModules.length.toString()
-              ));
-            }
-          }
-        }
+      .subscribe((state) => {
+        this.state = state;
+        this.states = this.mapMonitoring(state.interaction, 'Interaction')
+          .concat(this.mapMonitoring(state.detection, 'Detection'))
+          .concat(this.mapMonitoring(state.reaction, 'Reaction'));
       });
   }
 
   forceUpdate() {
     this.stateService.updateState()
       .subscribe(() => {
-        this.toastService.popToast(ToastType.SUCCESS, 'State updated', '');
+        this.toastService.popToast(ToastType.SUCCESS, 'State update command accepted', '');
       });
   }
 
   stopAllMonitoring() {
     this.stateService.stopMonitoring()
       .subscribe(() => {
-        this.toastService.popToast(ToastType.SUCCESS, 'Stopped monitoring', '');
+        this.toastService.popToast(ToastType.SUCCESS, 'Stop monitoring command accepted', '');
       });
+  }
+
+  showFilters() {
+    this.filtersHidden = false;
+  }
+
+  hideFilters() {
+    this.filtersHidden = true;
+  }
+
+  private mapMonitoring(states: RuleMonitoringState[], type: RuleType): RuleMonitoringStateInfo[] {
+    return states.map((state) => {
+      const info = new RuleMonitoringStateInfo();
+
+      info.type = type;
+      info.machine = state.machine;
+      info.container = state.container;
+      info.rule = state.rule;
+      info.modules = state.modules;
+
+      return info;
+    });
   }
 }

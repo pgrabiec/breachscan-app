@@ -1,0 +1,18 @@
+<div>
+  <h1>Interaction data</h1>
+
+  <table class="table">
+    <tr>
+      <th>Time</th>
+      <th>Machine</th>
+      <th>Container</th>
+      <th>Data type</th>
+    </tr>
+    <tr *ngFor="let data of events">
+      <td>{{data.data.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+      <td>{{data.machine.name ? data.machine.name : data.machine.id}}</td>
+      <td>{{data.container.name ? data.container.name : data.container.id}}</td>
+      <td>{{data.data.type}}</td>
+    </tr>
+  </table>
+</div>

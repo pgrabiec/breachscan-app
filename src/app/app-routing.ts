@@ -72,6 +72,11 @@ export class AppRouting {
   static stateModulesDetection = AppRouting.stateModules + '/detection';
   static stateModulesReaction = AppRouting.stateModules + '/reaction';
 
+  static events = 'events';
+  static interactionEvents = AppRouting.events + '/interaction';
+  static detectionEvents = AppRouting.events + '/detection';
+  static reactionEvents = AppRouting.events + '/reaction';
+
   // Path replacement utils
 
   static replaceMachineAddress(routingPath: string, machineAddress: string): string {

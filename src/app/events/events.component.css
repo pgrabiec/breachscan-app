@@ -1,0 +1,11 @@
+.btn {
+  width: 15rem;
+  height: 5rem;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

@@ -1,0 +1,21 @@
+<div>
+  <h1>Reaction events</h1>
+
+  <table class="table">
+    <tr>
+      <th>Time</th>
+      <th>Machine</th>
+      <th>Container</th>
+      <th>Event type</th>
+      <th>Rule ID</th>
+    </tr>
+    <tr *ngFor="let event of events">
+      <td>{{event.event.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+      <td>{{event.machine.name ? event.machine.name : event.machine.id}}</td>
+      <td>{{event.container.name ? event.container.name : event.container.id}}</td>
+      <td>{{event.event.reaction}}</td>
+      <td>{{event.event.rule}}</td>
+    </tr>
+  </table>
+</div>
+git

@@ -8,18 +8,46 @@
     <div style="clear: both"></div>
   </div>
 
-  <table class="table" id="state" *ngIf="states">
-    <tr>
-      <th>Machine name</th>
-      <th>Container name</th>
-      <th>Rule name</th>
-      <th>Modules count</th>
-    </tr>
-    <tr *ngFor="let state of states">
-      <td>{{state.machine}}</td>
-      <td>{{state.container}}</td>
-      <td>{{state.rule}}</td>
-      <td>{{state.modules}}</td>
-    </tr>
-  </table>
+  <div *ngIf="states">
+    <div class="light-section">
+      <button *ngIf="filtersHidden == true" class="btn" (click)="showFilters()">Filter</button>
+      <button *ngIf="filtersHidden == false" class="btn" (click)="hideFilters()">Hide</button>
+
+      <div *ngIf="filtersHidden == false">
+        <div class="form-group">
+          <label class="control-label">Machine name</label>
+          <input class="form-control" [(ngModel)]="machineFilter">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Container name</label>
+          <input class="form-control" [(ngModel)]="containerFilter">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Rule name</label>
+          <input class="form-control" [(ngModel)]="ruleFilter">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Modules count</label>
+          <input class="form-control" [(ngModel)]="modulesFilter" type="number">
+        </div>
+      </div>
+
+      <table class="table">
+        <tr>
+          <th>Type</th>
+          <th>Machine name</th>
+          <th>Container name</th>
+          <th>Rule name</th>
+          <th>Active modules</th>
+        </tr>
+        <tr *ngFor="let rule of states | filter : machineFilter : containerFilter : ruleFilter : modulesFilter">
+          <td>{{rule.type}}</td>
+          <td>{{rule.machine.name}}</td>
+          <td>{{rule.container.name}}</td>
+          <td>{{rule.rule.name}}</td>
+          <td>{{rule.modules.length}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
