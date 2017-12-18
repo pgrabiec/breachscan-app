@@ -5,7 +5,6 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {MachinesConfigurationComponent} from './conf/machines/machines-configuration/machines.configuration.component';
 import {MachineService} from './services/conf/machine/machine-service/machine.service';
-import {MessageService} from './services/misc/message-service/message.service';
 import {AppRoutingModule} from './/app-routing.module';
 import {HomeComponent} from './misc/home/home.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -26,7 +25,6 @@ import {AssignReactionComponent} from './conf/machines/containers/rules/assign-r
 import {ContainerRulesService} from './services/conf/machine/container/container-rules-service/container-rules.service';
 import {ShowRulesComponent} from './conf/rules/show-all-rules/show-all-rules.component';
 import {RulesService} from './services/conf/rules/rules-service/rules-service.service';
-import {ConfigureRuleComponent} from './conf/rules/rule/configure-rule/configure-rule.component';
 import {ConfigureInteractionComponent} from './conf/rules/rule/configure-interaction/configure-interaction.component';
 import {ConfigureDetectionComponent} from './conf/rules/rule/configure-detection/configure-detection.component';
 import {ConfigureReactionComponent} from './conf/rules/rule/configure-reaction/configure-reaction.component';
@@ -44,8 +42,9 @@ import {DetectionEventsComponent} from './events/detection/detection-events/dete
 import {ReactionEventsComponent} from './events/reaction/reaction-events/reaction-events.component';
 import {WebsocketService} from './services/websocket/websocket.service';
 import {WebsocketInteractionService} from './services/websocket/interaction/websocker-interaction.service';
-import {WebsocketReactionService} from "./services/websocket/reaction/websocket-reaction.service";
 import {WebsocketDetectionService} from './services/websocket/detection/websocket-detection.service';
+import {WebsocketReactionService} from './services/websocket/reaction/websocket-reaction.service';
+import {WebsocketMonitoringService} from './services/websocket/monitoring/websocket-monitoring.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +60,6 @@ import {WebsocketDetectionService} from './services/websocket/detection/websocke
     AssignDetectionComponent,
     AssignReactionComponent,
     ShowRulesComponent,
-    ConfigureRuleComponent,
     ConfigureInteractionComponent,
     ConfigureDetectionComponent,
     ConfigureReactionComponent,
@@ -91,7 +89,6 @@ import {WebsocketDetectionService} from './services/websocket/detection/websocke
       multi: true,
     },
     MachineService,
-    MessageService,
     ContainerService,
     ErrorHandlerService,
     ToastService,
@@ -102,7 +99,8 @@ import {WebsocketDetectionService} from './services/websocket/detection/websocke
     WebsocketService,
     WebsocketInteractionService,
     WebsocketDetectionService,
-    WebsocketReactionService
+    WebsocketReactionService,
+    WebsocketMonitoringService
   ],
   bootstrap: [AppComponent],
   exports: [

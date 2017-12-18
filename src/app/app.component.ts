@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {AppRouting} from './app-routing';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +6,7 @@ import {AppRouting} from './app-routing';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor() {
+  }
 }

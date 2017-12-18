@@ -1,7 +1,52 @@
-<app-configure-rule
-  [rule]="detectionRule"
-  [CapitalRuleType]="'Detection'"
-  [resetCallback]="resetFunction"
-  [updateCallback]="updateCallback"
-  [propertyNames]="propertyNames"
-></app-configure-rule>
+<div >
+  <h1>Detection rule configuration</h1>
+
+  <div *ngIf="detectionRule">
+    <div class="form-group">
+      <label class="control-label">Id</label>
+      <input class="form-control" [(ngModel)]="detectionRule.id" placeholder="id" disabled>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Name</label>
+      <input class="form-control" [(ngModel)]="detectionRule.name" placeholder="name">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Type</label>
+      <input class="form-control" [(ngModel)]="detectionRule.type" placeholder="type" disabled>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Description</label>
+      <input class="form-control" [(ngModel)]="detectionRule.description" placeholder="description">
+    </div>
+
+    <div *ngIf="detectionRule.type == 'DETECT_EXEC_NAME'" class="form-group">
+      <label class="control-label">Exec regex</label>
+      <input class="form-control" [(ngModel)]="detectionRule.properties['exec_name']" placeholder="regex">
+    </div>
+
+    <div *ngIf="detectionRule.type == 'DETECT_PROCESS'" class="form-group">
+      <label class="control-label">Command regex</label>
+      <input class="form-control" [(ngModel)]="detectionRule.properties['command']" placeholder="regex">
+    </div>
+
+    <div *ngIf="detectionRule.type == 'DETECT_FILE_CHANGE'" class="form-group">
+      <div>
+        <label class="control-label">File path</label>
+        <input class="form-control" [(ngModel)]="detectionRule.properties['path']" placeholder="path">
+      </div>
+      <div>
+        <label class="control-label" for="change">File change type</label>
+        <select class="form-control" [(ngModel)]="detectionRule.properties['change_type']" id="change" required>
+          <option *ngFor="let changeType of filesystemChanges" [value]="changeType">{{changeType}}</option>
+        </select>
+      </div>
+    </div>
+
+    <button style="float: left" class="btn" (click)="updateDetectionRule()">Update</button>
+    <button style="float: left" class="btn" (click)="getDetectionRule()">Reset</button>
+    <div style="clear: both"></div>
+  </div>
+</div>

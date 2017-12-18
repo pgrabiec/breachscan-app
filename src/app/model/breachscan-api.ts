@@ -1,4 +1,4 @@
-// Generated using typescript-generator version 1.30.381 on 2017-12-14 11:48:08.
+// Generated using typescript-generator version 1.30.381 on 2017-12-16 20:37:02.
 
 export namespace Breachscan {
 
@@ -53,6 +53,16 @@ export namespace Breachscan {
     id: string;
     type: DetectionEventType;
     properties: { [index: string]: string };
+    cause: string;
+  }
+
+  export class ExecDetectionEvent extends DetectionEvent {
+  }
+
+  export class FilesystemDetectionEvent extends DetectionEvent {
+  }
+
+  export class ProcessDetectionEvent extends DetectionEvent {
   }
 
   export class DetectionRule {
@@ -69,6 +79,15 @@ export namespace Breachscan {
     execName: string;
   }
 
+  export class FilesystemDetectionRule extends DetectionRule {
+    changeType: FilesystemChange;
+    path: string;
+  }
+
+  export class ProcessesDetectionRule extends DetectionRule {
+    command: string;
+  }
+
   export class InteractionData {
     timestamp: number;
     address: string;
@@ -77,12 +96,27 @@ export namespace Breachscan {
     properties: { [index: string]: string };
   }
 
+  export class ExecInteractionData extends InteractionData {
+  }
+
+  export class FilesystemInteractionData extends InteractionData {
+  }
+
+  export class ProcessInteractionData extends InteractionData {
+  }
+
   export class InteractionRule {
     id: string;
     name: string;
     description: string;
     type: InteractionDataType;
     properties: { [index: string]: string };
+  }
+
+  export class FilesystemInteractionRule extends InteractionRule {
+  }
+
+  export class ProcessesInteractionRule extends InteractionRule {
   }
 
   export class ReactionRule {
@@ -101,6 +135,10 @@ export namespace Breachscan {
     container: string;
     rule: string;
     reaction: ReactionType;
+    cause: string;
+  }
+
+  export class AnyInputEventReactionRule extends ReactionRule {
   }
 
   export class ErrorResponse {
@@ -210,14 +248,22 @@ export namespace Breachscan {
     reactionModulesOnline: string[];
   }
 
-  export type DetectionEventType = 'EVENT_EXEC';
+  export class ImmutableUtils {
+  }
 
-  export type DetectionRuleType = 'DETECT_EXEC_NAME';
+  export class Function<T, R> {
+  }
 
-  export type InteractionDataType = 'DATA_EXEC';
+  export type DetectionEventType = 'EVENT_EXEC' | 'EVENT_FILESYSTEM' | 'EVENT_PROCESS';
+
+  export type DetectionRuleType = 'DETECT_EXEC_NAME' | 'DETECT_FILE_CHANGE' | 'DETECT_PROCESS';
+
+  export type InteractionDataType = 'DATA_EXEC' | 'DATA_PROCESSES' | 'DATA_FILESYSTEM';
+
+  export type FilesystemChange = 'MODIFIED' | 'CREATED' | 'DELETED';
 
   export type ReactionRuleType = 'REACTION_ANY_INPUT_EVENT';
 
-  export type ReactionType = 'REACTION_RESTART_CONTAINER';
+  export type ReactionType = 'REACTION_RESTART_CONTAINER' | 'REACTION_STOP_CONTAINER' | 'REACTION_KILL_CONTAINER';
 
 }

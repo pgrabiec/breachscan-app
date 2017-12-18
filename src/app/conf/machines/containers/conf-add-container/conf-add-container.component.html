@@ -1,21 +1,24 @@
 <div>
   <div *ngIf="machineAddress">
     <h1>Add container to machine {{machineAddress}}</h1>
-    <div class="form-group">
-      <label>Id</label>
-      <input [(ngModel)]="container.id" placeholder="id">
-    </div>
 
-    <div class="form-group">
-      <label>Name</label>
-      <input [(ngModel)]="container.name" placeholder="name">
-    </div>
+    <div>
+      <div class="form-group">
+        <label class="control-label">Id</label>
+        <input class="form-control" [(ngModel)]="container.id" placeholder="id">
+      </div>
 
-    <div class="form-group">
-      <label>Description</label>
-      <input [(ngModel)]="container.description" placeholder="description">
-    </div>
+      <div class="form-group">
+        <label class="control-label">Name</label>
+        <input class="form-control" [(ngModel)]="container.name" placeholder="name">
+      </div>
 
-    <button class="btn" (click)="saveContainer()">Save</button>
+      <div class="form-group">
+        <label class="control-label">Description</label>
+        <input class="form-control" [(ngModel)]="container.description" placeholder="description">
+      </div>
+
+      <button class="btn" (click)="saveContainer()">Save</button>
+    </div>
   </div>
 </div>

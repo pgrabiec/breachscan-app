@@ -9,7 +9,7 @@ export class ToastService {
 
   popToast(type: ToastType, title: string, body: string) {
     const toast: Toast = {
-      timeout: 7000,
+      timeout: 8000,
       type: type.toString(),
       title: title,
       body: body

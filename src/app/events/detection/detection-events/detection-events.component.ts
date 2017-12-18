@@ -19,12 +19,12 @@ export class DetectionEventsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getEvents();
     this.websocketDetection.messages
-      .subscribe((() => {
+      .subscribe(((msg) => {
         this.getEvents();
-        this.toastService.popToast(ToastType.INFO, 'New detection event', '');
+        this.toastService.popToast(ToastType.INFO, msg.data, '');
       }));
+    this.getEvents();
   }
 
   getEvents() {

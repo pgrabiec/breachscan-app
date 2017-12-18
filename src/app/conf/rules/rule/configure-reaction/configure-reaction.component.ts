@@ -2,11 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {AppRouting} from '../../../../app-routing';
 import {RulesService} from '../../../../services/conf/rules/rules-service/rules-service.service';
 import {ActivatedRoute} from '@angular/router';
-import {RuleDetails} from '../configure-rule/RuleDetails';
-import {RuleDetailsMapper} from '../configure-rule/RuleDetailsMapper';
 import {ToastService, ToastType} from '../../../../services/misc/toast/toast.service';
-import {Observable} from 'rxjs/Observable';
-import {map} from 'rxjs/operators';
+import {Breachscan} from '../../../../model/breachscan-api';
+import ReactionRule = Breachscan.ReactionRule;
+import {Constants} from '../../../../model/constants';
 
 @Component({
   selector: 'app-configure-reaction',
@@ -14,12 +13,14 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./configure-reaction.component.css']
 })
 export class ConfigureReactionComponent implements OnInit {
-  reactionRule: RuleDetails;
-  propertyNames: string[];
+  reactionRule: ReactionRule;
   reactionRuleId: string;
+  detectionEventTypes = Constants.detectionEventTypes;
+  reactionTypes = Constants.reactionTypes;
 
   constructor(private route: ActivatedRoute,
-              private rulesService: RulesService) {
+              private rulesService: RulesService,
+              private toastService: ToastService) {
     this.reactionRuleId = this.route.snapshot.paramMap.get(AppRouting.reactionRuleIdName);
   }
 
@@ -30,27 +31,15 @@ export class ConfigureReactionComponent implements OnInit {
   getReactionRule() {
     this.rulesService.getReactionRule(this.reactionRuleId)
       .subscribe((response) => {
-        this.reactionRule = RuleDetailsMapper.createReactionDetails(response);
-        this.propertyNames = Object.keys(response.properties);
+        this.reactionRule = response;
       });
   }
 
-  updateCallback = function (rulesService: RulesService,
-                             toastService: ToastService,
-                             ruleDetails: RuleDetails) {
-
-    const reactionRule = RuleDetailsMapper.createReaction(ruleDetails);
-    rulesService.updateReactionRule(reactionRule)
+  updateReactionRule() {
+    this.rulesService.updateReactionRule(this.reactionRule)
       .subscribe((response) => {
-        toastService.popToast(ToastType.SUCCESS, 'Updated reaction rule', reactionRule.name);
+        this.getReactionRule();
+        this.toastService.popToast(ToastType.SUCCESS, 'Updated reaction rule', this.reactionRule.name);
       });
-  };
-
-  resetFunction = function (rulesService: RulesService,
-                            reactionRuleId: string): Observable<RuleDetails> {
-    return rulesService.getReactionRule(reactionRuleId)
-      .pipe(
-        map(RuleDetailsMapper.createReactionDetails)
-      );
-  };
+  }
 }

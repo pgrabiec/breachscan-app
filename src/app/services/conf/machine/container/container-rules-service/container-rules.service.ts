@@ -22,7 +22,10 @@ export class ContainerRulesService {
       assignmentRequest
     )
       .pipe(catchError(
-        this.errorHandler.handleError('assign interaction rule', 201, null)
+        this.errorHandler.handleError('assign interaction rule', 201, null, {
+          409: 'Already assigned',
+          404: 'Machine, container or rule not found'
+        })
       ));
   }
 
@@ -35,7 +38,9 @@ export class ContainerRulesService {
         interactionRuleId
       ))
       .pipe(catchError(
-        this.errorHandler.handleError('remove interaction rule from container', 200, null)
+        this.errorHandler.handleError('remove interaction rule from container', 200, null, {
+          404: 'Rule already not assigned'
+        })
       ));
   }
 
@@ -49,7 +54,10 @@ export class ContainerRulesService {
       assignmentRequest
     )
       .pipe(catchError(
-        this.errorHandler.handleError('assign detection rule', 201, null)
+        this.errorHandler.handleError('assign detection rule', 201, null, {
+          404: 'Machine, container or rule not found',
+          409: 'Rule already assigned'
+        })
       ));
   }
 
@@ -62,7 +70,9 @@ export class ContainerRulesService {
         detectionRuleId
       ))
       .pipe(catchError(
-        this.errorHandler.handleError('remove detection rule from container', 200, null)
+        this.errorHandler.handleError('remove detection rule from container', 200, null, {
+          404: 'Rule already not assigned'
+        })
       ));
   }
 
@@ -76,7 +86,10 @@ export class ContainerRulesService {
       assignmentRequest
     )
       .pipe(catchError(
-        this.errorHandler.handleError('assign reaction rule', 201, null)
+        this.errorHandler.handleError('assign reaction rule', 201, null, {
+          409: 'Already assigned',
+          404: 'Machine, container or rule not found'
+        })
       ));
   }
 
@@ -89,7 +102,9 @@ export class ContainerRulesService {
         reactionRuleId
       ))
       .pipe(catchError(
-        this.errorHandler.handleError('remove reaction rule from container', 200, null)
+        this.errorHandler.handleError('remove reaction rule from container', 200, null, {
+          404: 'Rule already not assigned'
+        })
       ));
   }
 
@@ -107,7 +122,9 @@ export class ContainerRulesService {
       interactionRuleAssignment
     )
       .pipe(catchError(
-        this.errorHandler.handleError('update interaction rule assignment', 200, null)
+        this.errorHandler.handleError('update interaction rule assignment', 200, null, {
+          404: 'Machine, container or rule not found'
+        })
       ));
   }
 
@@ -125,7 +142,9 @@ export class ContainerRulesService {
       detectionRuleAssignment
     )
       .pipe(catchError(
-        this.errorHandler.handleError('update detection rule assignment', 200, null)
+        this.errorHandler.handleError('update detection rule assignment', 200, null, {
+          404: 'Machine, container or rule not found'
+        })
       ));
   }
 
@@ -143,7 +162,9 @@ export class ContainerRulesService {
       reactionRuleAssignment
     )
       .pipe(catchError(
-        this.errorHandler.handleError('update reaction rule assignment', 200, null)
+        this.errorHandler.handleError('update reaction rule assignment', 200, null, {
+          404: 'Machine, container or rule not found'
+        })
       ));
   }
 }

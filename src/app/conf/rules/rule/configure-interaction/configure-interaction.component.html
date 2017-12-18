@@ -1,7 +1,34 @@
-<app-configure-rule
-  [rule]="interactionRule"
-  [CapitalRuleType]="'Interaction'"
-  [resetCallback]="resetFunction"
-  [updateCallback]="updateCallback"
-  [propertyNames]="propertyNames"
-></app-configure-rule>
+<div >
+  <h1>Interaction rule configuration</h1>
+
+  <div *ngIf="interactionRule">
+    <div class="form-group">
+      <label class="control-label">Id</label>
+      <input class="form-control" [(ngModel)]="interactionRule.id" placeholder="id" disabled>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Name</label>
+      <input class="form-control" [(ngModel)]="interactionRule.name" placeholder="name">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Type</label>
+      <input class="form-control" [(ngModel)]="interactionRule.type" placeholder="type" disabled>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Description</label>
+      <input class="form-control" [(ngModel)]="interactionRule.description" placeholder="description">
+    </div>
+
+    <div *ngIf="['DATA_PROCESSES', 'DATA_FILESYSTEM'].indexOf(interactionRule.type) >= 0" class="form-group">
+      <label class="control-label">Poll interval in ms</label>
+      <input class="form-control" [(ngModel)]="interactionRule.properties['poll_interval']" placeholder="interval" type="number">
+    </div>
+
+    <button style="float: left" class="btn" (click)="updateInteractionRule()">Update</button>
+    <button style="float: left" class="btn" (click)="getInteractionRule()">Reset</button>
+    <div style="clear: both"></div>
+  </div>
+</div>

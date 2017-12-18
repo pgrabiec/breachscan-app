@@ -19,12 +19,12 @@ export class ReactionEventsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getEvents();
     this.websocketReaction.messages
-      .subscribe((() => {
+      .subscribe(((msg) => {
         this.getEvents();
-        this.toastService.popToast(ToastType.INFO, 'New reaction event', '');
+        this.toastService.popToast(ToastType.INFO, msg.data, '');
       }));
+    this.getEvents();
   }
 
   getEvents() {

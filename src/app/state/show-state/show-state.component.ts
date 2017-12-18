@@ -5,6 +5,7 @@ import {Breachscan} from '../../model/breachscan-api';
 import {RuleMonitoringStateInfo, RuleType} from './RuleMonitoringStateInfo';
 import MonitoringState = Breachscan.MonitoringState;
 import RuleMonitoringState = Breachscan.RuleMonitoringState;
+import {WebsocketMonitoringService} from '../../services/websocket/monitoring/websocket-monitoring.service';
 
 @Component({
   selector: 'app-show-state',
@@ -22,11 +23,20 @@ export class ShowStateComponent implements OnInit {
 
   filtersHidden = true;
 
+  interactionModules = [];
+  detectionModules = [];
+  reactionModules = [];
+
   constructor(private stateService: StateService,
-              private toastService: ToastService) {
+              private toastService: ToastService,
+              private websocketMonitoringService: WebsocketMonitoringService) {
   }
 
   ngOnInit() {
+    this.websocketMonitoringService.messages.subscribe((message) => {
+      this.getState();
+      this.toastService.popToast(ToastType.INFO, message.data, '');
+    });
     this.getState();
   }
 
@@ -37,6 +47,18 @@ export class ShowStateComponent implements OnInit {
         this.states = this.mapMonitoring(state.interaction, 'Interaction')
           .concat(this.mapMonitoring(state.detection, 'Detection'))
           .concat(this.mapMonitoring(state.reaction, 'Reaction'));
+      });
+    this.stateService.getInteractionModules()
+      .subscribe((modules) => {
+        this.interactionModules = modules;
+      });
+    this.stateService.getDetectionModules()
+      .subscribe((modules) => {
+        this.detectionModules = modules;
+      });
+    this.stateService.getReactionModules()
+      .subscribe((modules) => {
+        this.reactionModules = modules;
       });
   }
 

@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from '../../../../environments/environment.prod';
 import {Subject} from 'rxjs/Subject';
 import {WebsocketService} from '../websocket.service';
 import {ToastService, ToastType} from '../../misc/toast/toast.service';
 
 @Injectable()
-export class WebsocketReactionService {
-  url = (environment.baseUri + 'live/reaction').replace('http', 'ws');
+export class WebsocketMonitoringService {
+  url = (environment.baseUri + 'live/monitoring').replace('http', 'ws');
 
   public messages: Subject<any>;
 

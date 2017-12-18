@@ -14,6 +14,48 @@
       <input class="form-control" [(ngModel)]="execInteractionRule.description" placeholder="description">
     </div>
 
-    <button id="save" class="btn" (click)="saveExecInteractionRule()">Save</button>
+    <button class="btn" (click)="saveExecInteractionRule()">Save</button>
+  </div>
+
+  <div class="dark-section form-group">
+    <h3>Add filesystem interaction rule</h3>
+
+    <div>
+      <label class="control-label">Name</label>
+      <input class="form-control" [(ngModel)]="filesystemInteractionRule.name" placeholder="name">
+    </div>
+
+    <div>
+      <label class="control-label">Description</label>
+      <input class="form-control" [(ngModel)]="filesystemInteractionRule.description" placeholder="description">
+    </div>
+
+    <div>
+      <label class="control-label">Polling interval in ms</label>
+      <input class="form-control" [(ngModel)]="filesystemInteractionRule.properties['poll_interval']" placeholder="milliseconds" type="number">
+    </div>
+
+    <button class="btn" (click)="saveFilesystemRule()">Save</button>
+  </div>
+
+  <div class="light-section form-group">
+    <h3>Add processes interaction rule</h3>
+
+    <div>
+      <label class="control-label">Name</label>
+      <input class="form-control" [(ngModel)]="processesInteractionRule.name" placeholder="name">
+    </div>
+
+    <div>
+      <label class="control-label">Description</label>
+      <input class="form-control" [(ngModel)]="processesInteractionRule.description" placeholder="description">
+    </div>
+
+    <div>
+      <label class="control-label">Polling interval in ms</label>
+      <input class="form-control" [(ngModel)]="processesInteractionRule.properties['poll_interval']" placeholder="milliseconds" type="number">
+    </div>
+
+    <button class="btn" (click)="saveProcessesRule()">Save</button>
   </div>
 </div>

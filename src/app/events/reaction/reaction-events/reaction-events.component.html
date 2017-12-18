@@ -8,6 +8,7 @@
       <th>Container</th>
       <th>Event type</th>
       <th>Rule ID</th>
+      <th>Cause</th>
     </tr>
     <tr *ngFor="let event of events">
       <td>{{event.event.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
@@ -15,6 +16,7 @@
       <td>{{event.container.name ? event.container.name : event.container.id}}</td>
       <td>{{event.event.reaction}}</td>
       <td>{{event.event.rule}}</td>
+      <td>{{event.event.cause}}</td>
     </tr>
   </table>
 </div>

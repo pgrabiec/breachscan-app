@@ -2,18 +2,18 @@
   <h1>Add new machine</h1>
   <form>
     <div class="form-group">
-      <label for="address">Address</label>
-      <input #address type="text" id="address" required>
+      <label class="control-label" for="address">Address</label>
+      <input class="form-control" #address type="text" id="address" required>
     </div>
 
     <div class="form-group">
-      <label for="name">Name</label>
-      <input #name type="text" id="name" required>
+      <label class="control-label" for="name">Name</label>
+      <input class="form-control" #name type="text" id="name" required>
     </div>
 
     <div class="form-group">
-      <label for="description">Description</label>
-      <input #description type="text" id="description">
+      <label class="control-label" for="description">Description</label>
+      <input class="form-control" #description type="text" id="description">
     </div>
 
     <button class="btn" (click)="saveMachine(address.value, name.value, description.value)">Save</button>

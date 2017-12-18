@@ -50,4 +50,43 @@
       </table>
     </div>
   </div>
+
+  <div class="dark-section">
+    <h3>Online interaction modules</h3>
+    <ul class="horizontal-list">
+      <li class="list-group list-group-horizontal list-group-item" *ngFor="let module of interactionModules">
+        <div>
+          <i style="float: left" class="material-icons">file_download</i>
+          <label style="float: left">{{module}}</label>
+          <div style="clear: both"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="light-section">
+    <h3>Online detection modules</h3>
+    <ul class="horizontal-list">
+      <li class="list-group list-group-horizontal list-group-item" *ngFor="let module of detectionModules">
+        <div>
+          <i style="float: left" class="material-icons">track_changes</i>
+          <label style="float: left">{{module}}</label>
+          <div style="clear: both"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="dark-section">
+    <h3>Online reaction modules</h3>
+    <ul class="horizontal-list">
+      <li class="list-group list-group-horizontal list-group-item" *ngFor="let module of reactionModules">
+        <div>
+          <i style="float: left" class="material-icons">pan_tool</i>
+          <label style="float: left">{{module}}</label>
+          <div style="clear: both"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

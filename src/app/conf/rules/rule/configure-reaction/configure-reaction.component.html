@@ -1,7 +1,43 @@
-<app-configure-rule
-  [rule]="reactionRule"
-  [CapitalRuleType]="'Reaction'"
-  [resetCallback]="resetFunction"
-  [updateCallback]="updateCallback"
-  [propertyNames]="propertyNames"
-></app-configure-rule>
+<div >
+  <h1>Reaction rule configuration</h1>
+
+  <div *ngIf="reactionRule">
+    <div class="form-group">
+      <label class="control-label">Id</label>
+      <input class="form-control" [(ngModel)]="reactionRule.id" placeholder="id" disabled>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Name</label>
+      <input class="form-control" [(ngModel)]="reactionRule.name" placeholder="name">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Type</label>
+      <input class="form-control" [(ngModel)]="reactionRule.type" placeholder="type" disabled>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Description</label>
+      <input class="form-control" [(ngModel)]="reactionRule.description" placeholder="description">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Trigger event type</label>
+      <select class="form-control" [(ngModel)]="reactionRule.input" required>
+        <option *ngFor="let eventType of detectionEventTypes" [value]="eventType">{{eventType}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Reaction type</label>
+      <select class="form-control" [(ngModel)]="reactionRule.output" required>
+        <option *ngFor="let reactionType of reactionTypes" [value]="reactionType">{{reactionType}}</option>
+      </select>
+    </div>
+
+    <button style="float: left" class="btn" (click)="updateReactionRule()">Update</button>
+    <button style="float: left" class="btn" (click)="getReactionRule()">Reset</button>
+    <div style="clear: both"></div>
+  </div>
+</div>

@@ -23,4 +23,57 @@
       <button class="btn" (click)="saveExecDetectionRule()">Save</button>
     </div>
   </div>
+
+  <div class="dark-section">
+    <h3>Add filesystem detection rule</h3>
+
+    <div class="form-group">
+      <div>
+        <label class="control-label">Name</label>
+        <input class="form-control" [(ngModel)]="filesystemDetectionRule.name" placeholder="name">
+      </div>
+
+      <div>
+        <label class="control-label">Description</label>
+        <input class="form-control" [(ngModel)]="filesystemDetectionRule.description" placeholder="description">
+      </div>
+
+      <div>
+        <label class="control-label">Path to file to monitor</label>
+        <input class="form-control" [(ngModel)]="filesystemDetectionRule.properties['path']" placeholder="path">
+      </div>
+
+      <div>
+        <label class="control-label">Type of change to detect</label>
+        <select class="form-control" [(ngModel)]="filesystemDetectionRule.properties['change_type']" required>
+          <option *ngFor="let changeType of filesystemChanges" [value]="changeType">{{changeType}}</option>
+        </select>
+      </div>
+
+      <button class="btn" (click)="saveFilesystemDetectionRule()">Save</button>
+    </div>
+  </div>
+
+  <div class="light-section">
+    <h3>Add unwanted command execution rule</h3>
+
+    <div class="form-group">
+      <div>
+        <label class="control-label">Name</label>
+        <input class="form-control" [(ngModel)]="processesDetectionRule.name" placeholder="name">
+      </div>
+
+      <div>
+        <label class="control-label">Description</label>
+        <input class="form-control" [(ngModel)]="processesDetectionRule.description" placeholder="description">
+      </div>
+
+      <div>
+        <label class="control-label">Regex for the command</label>
+        <input class="form-control" [(ngModel)]="processesDetectionRule.properties['command']" placeholder="regex">
+      </div>
+
+      <button class="btn" (click)="saveProcessDetectionRule()">Save</button>
+    </div>
+  </div>
 </div>

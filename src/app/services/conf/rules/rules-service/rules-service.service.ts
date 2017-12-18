@@ -44,7 +44,9 @@ export class RulesService {
       )
     )
       .pipe(catchError(
-        this.errorHandler.handleError('delete interaction rule', 200, null)
+        this.errorHandler.handleError('delete interaction rule', 200, null, {
+          404: 'Rule not found'
+        })
       ));
   }
 
@@ -56,7 +58,9 @@ export class RulesService {
       )
     )
       .pipe(catchError(
-        this.errorHandler.handleError('delete detection rule', 200, null)
+        this.errorHandler.handleError('delete detection rule', 200, null, {
+          404: 'Rule not found'
+        })
       ));
   }
 
@@ -68,7 +72,9 @@ export class RulesService {
       )
     )
       .pipe(catchError(
-        this.errorHandler.handleError('delete reaction rule', 200, null)
+        this.errorHandler.handleError('delete reaction rule', 200, null, {
+          404: 'Rule not found'
+        })
       ));
   }
 
@@ -81,7 +87,9 @@ export class RulesService {
       interactionRule
     )
       .pipe(catchError(
-        this.errorHandler.handleError('update interaction rule', 200, null)
+        this.errorHandler.handleError('update interaction rule', 200, null, {
+          404: 'Rule not found'
+        })
       ));
   }
 
@@ -94,7 +102,9 @@ export class RulesService {
       detectionRule
     )
       .pipe(catchError(
-        this.errorHandler.handleError('update detection rule', 200, null)
+        this.errorHandler.handleError('update detection rule', 200, null, {
+          404: 'Rule not found'
+        })
       ));
   }
 
@@ -107,7 +117,9 @@ export class RulesService {
       reactionRule
     )
       .pipe(catchError(
-        this.errorHandler.handleError('update reaction rule', 200, null)
+        this.errorHandler.handleError('update reaction rule', 200, null, {
+          404: 'Rule not found'
+        })
       ));
   }
 
@@ -119,7 +131,9 @@ export class RulesService {
       )
     )
       .pipe(catchError(
-        this.errorHandler.handleError('get interaction rule', 200, null)
+        this.errorHandler.handleError('get interaction rule', 200, null, {
+          404: 'Rule not found'
+        })
       ));
   }
 
@@ -131,7 +145,9 @@ export class RulesService {
       )
     )
       .pipe(catchError(
-        this.errorHandler.handleError('get detection rule', 200, null)
+        this.errorHandler.handleError('get detection rule', 200, null, {
+          404: 'Rule not found'
+        })
       ));
   }
 
@@ -143,7 +159,9 @@ export class RulesService {
       )
     )
       .pipe(catchError(
-        this.errorHandler.handleError('get reaction rule', 200, null)
+        this.errorHandler.handleError('get reaction rule', 200, null, {
+          404: 'Rule not found'
+        })
       ));
   }
 
@@ -154,7 +172,9 @@ export class RulesService {
       rule
     )
       .pipe(catchError(
-        this.errorHandler.handleError('save interaction rule', 201, null)
+        this.errorHandler.handleError('save interaction rule', 201, null, {
+          409: 'Rule already exists'
+        })
       ));
   }
 
@@ -165,7 +185,9 @@ export class RulesService {
       rule
     )
       .pipe(catchError(
-        this.errorHandler.handleError('save detection rule', 201, null)
+        this.errorHandler.handleError('save detection rule', 201, null, {
+          409: 'Rule already exists'
+        })
       ));
   }
 
@@ -176,7 +198,9 @@ export class RulesService {
       rule
     )
       .pipe(catchError(
-        this.errorHandler.handleError('save reaction rule', 201, null)
+        this.errorHandler.handleError('save reaction rule', 201, null, {
+          409: 'Rule already exists'
+        })
       ));
   }
 }

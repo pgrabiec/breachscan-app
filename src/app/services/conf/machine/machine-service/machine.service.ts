@@ -31,7 +31,9 @@ export class MachineService {
         address
       ))
       .pipe(catchError(
-        this.errorHandler.handleError('get machine', 200, null)
+        this.errorHandler.handleError('get machine', 200, null, {
+          404: 'Machine not found'
+        })
       ));
   }
 
@@ -42,7 +44,9 @@ export class MachineService {
         address
       ))
       .pipe(catchError(
-        this.errorHandler.handleError('delete machine', 200, null)
+        this.errorHandler.handleError('delete machine', 200, null, {
+          404: 'Machine not found'
+        })
       ));
   }
 
@@ -52,7 +56,9 @@ export class MachineService {
       machine
     )
       .pipe(catchError(
-        this.errorHandler.handleError('save machine', 201, null)
+        this.errorHandler.handleError('save machine', 201, null, {
+          409: 'Machine already exists'
+        })
       ));
   }
 
@@ -65,7 +71,9 @@ export class MachineService {
       machine
     )
       .pipe(catchError(
-        this.errorHandler.handleError('update machine', 200, null)
+        this.errorHandler.handleError('update machine', 200, null, {
+          404: 'Machine not found'
+        })
       ));
   }
 }

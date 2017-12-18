@@ -5,6 +5,7 @@ import {ToastService, ToastType} from '../../../../services/misc/toast/toast.ser
 import ReactionRule = Breachscan.ReactionRule;
 import ReactionType = Breachscan.ReactionType;
 import DetectionEventType = Breachscan.DetectionEventType;
+import {Constants} from '../../../../model/constants';
 
 @Component({
   selector: 'app-add-reaction-rule',
@@ -14,8 +15,8 @@ import DetectionEventType = Breachscan.DetectionEventType;
 export class AddReactionRuleComponent implements OnInit {
   anyInputReactionRule = new ReactionRule();
 
-  reactionTypes: ReactionType[] = ['REACTION_RESTART_CONTAINER'];
-  inputTypes: DetectionEventType[] = ['EVENT_EXEC'];
+  reactionTypes: ReactionType[] = Constants.reactionTypes;
+  inputTypes: DetectionEventType[] = Constants.detectionEventTypes;
 
   constructor(private ruleService: RulesService,
               private toastService: ToastService) {

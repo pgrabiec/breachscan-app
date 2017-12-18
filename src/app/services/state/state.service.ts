@@ -25,7 +25,9 @@ export class StateService {
   updateState(): Observable<any> {
     return this.http.post<any>(ApiRouting.stateMachines, null)
       .pipe(catchError(
-        this.errorHandler.handleError('update state', 200, null)
+        this.errorHandler.handleError('update state', 200, null, {
+          503: 'No interaction module online to handle interaction'
+        })
       ));
   }
 
@@ -33,6 +35,27 @@ export class StateService {
     return this.http.delete<any>(ApiRouting.stateMachines)
       .pipe(catchError(
         this.errorHandler.handleError('stop monitoring', 200, null)
+      ));
+  }
+
+  getInteractionModules(): Observable<string[]> {
+    return this.http.get<string[]>(ApiRouting.stateModulesInteraction)
+      .pipe(catchError(
+        this.errorHandler.handleError('get interaction modules', 200, [])
+      ));
+  }
+
+  getDetectionModules(): Observable<string[]> {
+    return this.http.get<string[]>(ApiRouting.stateModulesDetection)
+      .pipe(catchError(
+        this.errorHandler.handleError('get detection modules', 200, [])
+      ));
+  }
+
+  getReactionModules(): Observable<string[]> {
+    return this.http.get<string[]>(ApiRouting.stateModulesReaction)
+      .pipe(catchError(
+        this.errorHandler.handleError('get reaction modules', 200, [])
       ));
   }
 }
