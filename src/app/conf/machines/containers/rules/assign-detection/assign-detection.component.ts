@@ -52,7 +52,7 @@ export class AssignDetectionComponent implements OnInit {
       machineAddress,
       containerId,
       request
-    ).subscribe((response) => {
+    ).subscribe(() => {
       toastService.popToast(ToastType.SUCCESS, 'Assigned detection rule', detectionRuleId);
     });
   };

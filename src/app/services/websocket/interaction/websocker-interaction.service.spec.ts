@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { WebsocketInteractionService } from './websocker-interaction.service';
+import { WebSocketInteractionService } from './websocker-interaction.service';
 
-describe('WebsocketInteractionService', () => {
+describe('WebSocketInteractionService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [WebsocketInteractionService]
+      providers: [WebSocketInteractionService]
     });
   });
 
-  it('should be created', inject([WebsocketInteractionService], (service: WebsocketInteractionService) => {
+  it('should be created', inject([WebSocketInteractionService], (service: WebSocketInteractionService) => {
     expect(service).toBeTruthy();
   }));
 });

@@ -34,7 +34,7 @@ export class ConfigureInteractionComponent implements OnInit {
 
   updateInteractionRule() {
     this.rulesService.updateInteractionRule(this.interactionRule)
-      .subscribe((response) => {
+      .subscribe(() => {
         this.getInteractionRule();
         this.toastService.popToast(ToastType.SUCCESS, 'Updated interaction rule', this.interactionRule.name);
       });

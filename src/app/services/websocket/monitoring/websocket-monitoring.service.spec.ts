@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { WebsocketMonitoringService } from './websocket-monitoring.service';
+import { WebSocketMonitoringService } from './websocket-monitoring.service';
 
-describe('WebsocketMonitoringService', () => {
+describe('WebSocketMonitoringService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [WebsocketMonitoringService]
+      providers: [WebSocketMonitoringService]
     });
   });
 
-  it('should be created', inject([WebsocketMonitoringService], (service: WebsocketMonitoringService) => {
+  it('should be created', inject([WebSocketMonitoringService], (service: WebSocketMonitoringService) => {
     expect(service).toBeTruthy();
   }));
 });

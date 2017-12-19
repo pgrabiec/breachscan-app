@@ -9,6 +9,7 @@ export class ErrorHandlerService {
   private defaultExplanations = {
     500: 'Something went wrong on the server',
     400: 'Invalid input',
+    0: 'Server is unavailable'
   };
 
   constructor(private toastService: ToastService) {
@@ -22,14 +23,14 @@ export class ErrorHandlerService {
    * @param expectedStatus
    * @param explanations
    */
-  public handleError<T>(operation = 'operation', expectedStatus: number, result?: T, explanations?: {}) {
+  public handleError<T>(operation = 'execute operation', expectedStatus: number, result?: T, explanations?: {}) {
     return (response: HttpErrorResponse): Observable<T> => {
       if (response.status !== expectedStatus) {
         const hasDefaultExplanation = this.defaultExplanations[response.status] != null;
         const isProvidedExplanation = explanations != null && explanations[response.status] != null;
 
         if (isProvidedExplanation) {
-          this.toastService.popToast(ToastType.ERROR, `${operation} failed`, explanations[response.status]);
+          this.toastService.popToast(ToastType.ERROR, `Failed to ${operation}`, explanations[response.status]);
           return;
         }
 
@@ -52,10 +53,10 @@ export class ErrorHandlerService {
     if (description == null) {
       this.genericError(operation, response);
     }
-    this.toastService.popToast(ToastType.ERROR, `${operation} failed`, this.defaultExplanations[response.status]);
+    this.toastService.popToast(ToastType.ERROR, `Failed to ${operation}`, this.defaultExplanations[response.status]);
   }
 
   private genericError(operation: string, response: HttpErrorResponse) {
-    this.toastService.popToast(ToastType.ERROR, `${operation} failed`, response.message);
+    this.toastService.popToast(ToastType.ERROR, `Failed to ${operation}`, response.message);
   }
 }

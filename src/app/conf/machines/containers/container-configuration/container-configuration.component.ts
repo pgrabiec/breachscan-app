@@ -72,7 +72,7 @@ export class ContainerConfigurationComponent implements OnInit {
 
   updateContainer() {
     this.containerService.updateContainer(this.machineAddress, this.container)
-      .subscribe((response) => {
+      .subscribe(() => {
         this.getContainer();
         this.toastService.popToast(
           ToastType.SUCCESS,
@@ -87,7 +87,7 @@ export class ContainerConfigurationComponent implements OnInit {
       this.machineAddress,
       this.containerId,
       ruleId
-    ).subscribe((response) => {
+    ).subscribe(() => {
       this.getContainer();
       this.toastService.popToast(ToastType.SUCCESS, 'Removed interaction rule', ruleId);
     });
@@ -103,7 +103,7 @@ export class ContainerConfigurationComponent implements OnInit {
       this.containerId,
       interactionRuleId,
       assignment
-    ).subscribe((response) => {
+    ).subscribe(() => {
       this.getContainer();
       this.toastService.popToast(ToastType.SUCCESS, 'Updated interaction assignment', interactionRuleId);
     });
@@ -114,7 +114,7 @@ export class ContainerConfigurationComponent implements OnInit {
       this.machineAddress,
       this.containerId,
       ruleId
-    ).subscribe((response) => {
+    ).subscribe(() => {
       this.getContainer();
       this.toastService.popToast(ToastType.SUCCESS, 'Removed detection rule', ruleId);
     });
@@ -130,7 +130,7 @@ export class ContainerConfigurationComponent implements OnInit {
       this.containerId,
       detectionRuleId,
       assignment
-    ).subscribe((response) => {
+    ).subscribe(() => {
       this.getContainer();
       this.toastService.popToast(ToastType.SUCCESS, 'Updated detection assignment', detectionRuleId);
     });
@@ -141,7 +141,7 @@ export class ContainerConfigurationComponent implements OnInit {
       this.machineAddress,
       this.containerId,
       ruleId
-    ).subscribe((response) => {
+    ).subscribe(() => {
       this.getContainer();
       this.toastService.popToast(ToastType.SUCCESS, 'Removed reaction rule', ruleId);
     });
@@ -157,7 +157,7 @@ export class ContainerConfigurationComponent implements OnInit {
       this.containerId,
       reactionRuleId,
       assignment
-    ).subscribe((response) => {
+    ).subscribe(() => {
       this.getContainer();
       this.toastService.popToast(ToastType.SUCCESS, 'Updated reaction assignment', reactionRuleId);
     });

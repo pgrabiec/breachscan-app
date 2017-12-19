@@ -36,7 +36,7 @@ export class ConfigureDetectionComponent implements OnInit {
 
   updateDetectionRule() {
     this.rulesService.updateDetectionRule(this.detectionRule)
-      .subscribe((response) => {
+      .subscribe(() => {
       this.getDetectionRule();
         this.toastService.popToast(ToastType.SUCCESS, 'Updated detection rule', this.detectionRule.name);
       });

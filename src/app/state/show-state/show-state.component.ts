@@ -5,7 +5,7 @@ import {Breachscan} from '../../model/breachscan-api';
 import {RuleMonitoringStateInfo, RuleType} from './RuleMonitoringStateInfo';
 import MonitoringState = Breachscan.MonitoringState;
 import RuleMonitoringState = Breachscan.RuleMonitoringState;
-import {WebsocketMonitoringService} from '../../services/websocket/monitoring/websocket-monitoring.service';
+import {WebSocketMonitoringService} from '../../services/websocket/monitoring/websocket-monitoring.service';
 
 @Component({
   selector: 'app-show-state',
@@ -29,7 +29,7 @@ export class ShowStateComponent implements OnInit {
 
   constructor(private stateService: StateService,
               private toastService: ToastService,
-              private websocketMonitoringService: WebsocketMonitoringService) {
+              private websocketMonitoringService: WebSocketMonitoringService) {
   }
 
   ngOnInit() {

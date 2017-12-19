@@ -15,20 +15,20 @@
 
       <div *ngIf="filtersHidden == false">
         <div class="form-group">
-          <label class="control-label">Machine name</label>
-          <input class="form-control" [(ngModel)]="machineFilter">
+          <label class="control-label" for="machineFilter">Machine name</label>
+          <input id="machineFilter" class="form-control" [(ngModel)]="machineFilter">
         </div>
         <div class="form-group">
-          <label class="control-label">Container name</label>
-          <input class="form-control" [(ngModel)]="containerFilter">
+          <label class="control-label" for="containerFilter">Container name</label>
+          <input id="containerFilter" class="form-control" [(ngModel)]="containerFilter">
         </div>
         <div class="form-group">
-          <label class="control-label">Rule name</label>
-          <input class="form-control" [(ngModel)]="ruleFilter">
+          <label class="control-label" for="ruleFilter">Rule name</label>
+          <input id="ruleFilter" class="form-control" [(ngModel)]="ruleFilter">
         </div>
         <div class="form-group">
-          <label class="control-label">Modules count</label>
-          <input class="form-control" [(ngModel)]="modulesFilter" type="number">
+          <label class="control-label" for="moduleFilter">Modules count</label>
+          <input id="moduleFilter" class="form-control" [(ngModel)]="modulesFilter" type="number">
         </div>
       </div>
 

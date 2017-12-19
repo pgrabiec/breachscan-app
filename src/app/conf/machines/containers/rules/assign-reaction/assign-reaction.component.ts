@@ -52,7 +52,7 @@ export class AssignReactionComponent implements OnInit {
       machineAddress,
       containerId,
       request
-    ).subscribe((response) => {
+    ).subscribe(() => {
       toastService.popToast(ToastType.SUCCESS, 'Assigned reaction rule', reactionRuleId);
     });
   };

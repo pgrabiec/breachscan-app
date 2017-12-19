@@ -26,7 +26,7 @@ export class ConfAddMachineComponent implements OnInit {
     machine.containers = {};
 
     this.machineService.saveMachine(machine)
-      .subscribe((response) => {
+      .subscribe(() => {
         this.toastService.popToast(ToastType.SUCCESS, 'Machine saved', address);
       });
   }

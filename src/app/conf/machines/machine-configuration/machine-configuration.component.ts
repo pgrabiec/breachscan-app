@@ -49,7 +49,7 @@ export class MachineConfigurationComponent implements OnInit {
 
   updateMachine() {
     this.machineService.updateMachine(this.machine)
-      .subscribe((response) => {
+      .subscribe(() => {
         this.getMachine();
         this.toastService.popToast(ToastType.SUCCESS, 'Updated machine', this.machine.address);
       });
@@ -61,7 +61,7 @@ export class MachineConfigurationComponent implements OnInit {
 
   deleteContainer(machineAddress: string, containerId: string) {
     this.containerService.deleteContainer(machineAddress, containerId)
-      .subscribe((response) => {
+      .subscribe(() => {
           this.getMachine();
           this.toastService.popToast(
             ToastType.SUCCESS,

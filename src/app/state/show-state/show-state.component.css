@@ -2,21 +2,9 @@
   margin-top: 2rem;
 }
 
-.form-control-static {
-  float: left;
-}
-
 .control-label {
   margin-top: 5px;
   float: left;
-}
-
-.expando {
-  display: none;
-}
-
-.expando:target {
-  display: block;
 }
 
 .material-icons {

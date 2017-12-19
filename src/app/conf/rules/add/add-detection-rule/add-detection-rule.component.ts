@@ -2,11 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Breachscan} from '../../../../model/breachscan-api';
 import {ToastService, ToastType} from '../../../../services/misc/toast/toast.service';
 import {RulesService} from '../../../../services/conf/rules/rules-service/rules-service.service';
+import {Constants} from '../../../../model/constants';
 import ExecDetectionRule = Breachscan.ExecDetectionRule;
 import FilesystemDetectionRule = Breachscan.FilesystemDetectionRule;
 import ProcessesDetectionRule = Breachscan.ProcessesDetectionRule;
-import FilesystemChange = Breachscan.FilesystemChange;
-import {Constants} from '../../../../model/constants';
 
 @Component({
   selector: 'app-add-detection-rule',

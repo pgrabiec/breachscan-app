@@ -44,8 +44,8 @@
       </div>
 
       <div>
-        <label class="control-label">Type of change to detect</label>
-        <select class="form-control" [(ngModel)]="filesystemDetectionRule.properties['change_type']" required>
+        <label class="control-label" for="changeType">Type of change to detect</label>
+        <select id="changeType" class="form-control" [(ngModel)]="filesystemDetectionRule.properties['change_type']" required>
           <option *ngFor="let changeType of filesystemChanges" [value]="changeType">{{changeType}}</option>
         </select>
       </div>

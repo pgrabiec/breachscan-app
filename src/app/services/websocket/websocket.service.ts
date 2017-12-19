@@ -1,20 +1,22 @@
 import {Injectable} from '@angular/core';
-import * as Rx from 'rxjs/Rx';
+import {Subject} from 'rxjs/Subject';
+import {Observable} from 'rxjs/Observable';
+import {Observer} from 'rxjs/Observer';
 
 @Injectable()
-export class WebsocketService {
+export class WebSocketService {
   constructor() {
   }
 
-  public connect(url): Rx.Subject<MessageEvent> {
+  public connect(url): Subject<MessageEvent> {
     return this.create(url);
   }
 
-  private create(url): Rx.Subject<MessageEvent> {
+  private create(url): Subject<MessageEvent> {
     const ws = new WebSocket(url);
 
-    const observable = Rx.Observable.create(
-      (obs: Rx.Observer<MessageEvent>) => {
+    const observable = Observable.create(
+      (obs: Observer<MessageEvent>) => {
         ws.onmessage = obs.next.bind(obs);
         ws.onerror = obs.error.bind(obs);
         ws.onclose = obs.complete.bind(obs);
@@ -29,6 +31,6 @@ export class WebsocketService {
       }
     };
 
-    return Rx.Subject.create(observer, observable);
+    return Subject.create(observer, observable);
   }
 }

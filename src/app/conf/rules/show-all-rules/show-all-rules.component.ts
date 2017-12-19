@@ -55,7 +55,7 @@ export class ShowRulesComponent implements OnInit {
 
   deleteInteractionRule(interactionRuleId: string) {
     this.rulesService.deleteInteractionRule(interactionRuleId)
-      .subscribe((response) => {
+      .subscribe(() => {
         this.toastService.popToast(
           ToastType.SUCCESS,
           'Deleted interaction rule',
@@ -67,7 +67,7 @@ export class ShowRulesComponent implements OnInit {
 
   deleteDetectionRule(detectionRuleId: string) {
     this.rulesService.deleteDetectionRule(detectionRuleId)
-      .subscribe((response) => {
+      .subscribe(() => {
         this.toastService.popToast(
           ToastType.SUCCESS,
           'Deleted detection rule',
@@ -79,7 +79,7 @@ export class ShowRulesComponent implements OnInit {
 
   deleteReactionRule: Function = (reactionRuleId: string) => {
     this.rulesService.deleteReactionRule(reactionRuleId)
-      .subscribe((response) => {
+      .subscribe(() => {
         this.toastService.popToast(
           ToastType.SUCCESS,
           'Deleted reaction rule',

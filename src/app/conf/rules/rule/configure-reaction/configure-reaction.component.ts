@@ -37,7 +37,7 @@ export class ConfigureReactionComponent implements OnInit {
 
   updateReactionRule() {
     this.rulesService.updateReactionRule(this.reactionRule)
-      .subscribe((response) => {
+      .subscribe(() => {
         this.getReactionRule();
         this.toastService.popToast(ToastType.SUCCESS, 'Updated reaction rule', this.reactionRule.name);
       });

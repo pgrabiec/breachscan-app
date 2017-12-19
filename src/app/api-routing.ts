@@ -40,23 +40,8 @@ export class ApiRouting {
   static confReactions = ApiRouting.confRules + '/reactions';
   static confReactionId = ApiRouting.confReactions + '/' + ApiRouting.reactionRuleIdPlaceholder;
 
-  static confDefinitions = ApiRouting.configuration + '/definitions';
-  static confDefinitionsRules = ApiRouting.configuration + '/rules';
-  static confDefinitionsInteractions = ApiRouting.confDefinitionsRules + '/interactions';
-  static confDefinitionsDetections = ApiRouting.confDefinitionsRules + '/detections';
-  static confDefinitionsReactions = ApiRouting.confDefinitionsRules + '/reactions';
-
   static state = '/state';
   static stateMachines = ApiRouting.state + '/machines';
-  static stateMachineAddress = ApiRouting.stateMachines + '/' + ApiRouting.machineAddressPlaceholder;
-  static stateContainers = ApiRouting.stateMachineAddress + '/containers';
-  static stateContainerId = ApiRouting.stateContainers + '/' + ApiRouting.containerIdPlaceholder;
-  static stateContainerInteractions = ApiRouting.stateContainerId + '/interactions';
-  static stateContainerInteractionId = ApiRouting.stateContainerInteractions + '/' + ApiRouting.interactionRuleIdPlaceholder;
-  static stateContainerDetections = ApiRouting.stateContainerId + '/detections';
-  static stateContainerDetectionId = ApiRouting.stateContainerDetections + '/' + ApiRouting.detectionRuleIdPlaceholder;
-  static stateContainerReactions = ApiRouting.stateContainerId + '/reactions';
-  static stateContainerReactionId = ApiRouting.stateContainerReactions + '/' + ApiRouting.reactionRuleIdPlaceholder;
 
   static stateModules = ApiRouting.state + '/modules';
   static stateModulesInteraction = ApiRouting.stateModules + '/interaction';
@@ -72,10 +57,6 @@ export class ApiRouting {
 
   static replaceMachineAddress(routingPath: string, machineAddress: string): string {
     return routingPath.replace(ApiRouting.machineAddressPlaceholder, machineAddress);
-  }
-
-  static replaceContainerId(routingPath: string, containerId: string): string {
-    return routingPath.replace(ApiRouting.containerIdPlaceholder, containerId);
   }
 
   static replaceInteractionRuleId(routingPath: string, interactionRuleId: string): string {

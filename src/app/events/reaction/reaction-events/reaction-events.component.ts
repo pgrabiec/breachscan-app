@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EventService} from '../../../services/events/event-service/event.service';
 import {Breachscan} from '../../../model/breachscan-api';
 import {ToastService, ToastType} from '../../../services/misc/toast/toast.service';
-import {WebsocketReactionService} from '../../../services/websocket/reaction/websocket-reaction.service';
+import {WebSocketReactionService} from '../../../services/websocket/reaction/websocket-reaction.service';
 import ReactionEventInfo = Breachscan.ReactionEventInfo;
 
 @Component({
@@ -14,7 +14,7 @@ export class ReactionEventsComponent implements OnInit {
   events: ReactionEventInfo[];
 
   constructor(private eventService: EventService,
-              private websocketReaction: WebsocketReactionService,
+              private websocketReaction: WebSocketReactionService,
               private toastService: ToastService) {
   }
 

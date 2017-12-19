@@ -40,11 +40,11 @@ import {EventsComponent} from './events/events.component';
 import {InteractionEventsComponent} from './events/interaction/interaction-events/interaction-events.component';
 import {DetectionEventsComponent} from './events/detection/detection-events/detection-events.component';
 import {ReactionEventsComponent} from './events/reaction/reaction-events/reaction-events.component';
-import {WebsocketService} from './services/websocket/websocket.service';
-import {WebsocketInteractionService} from './services/websocket/interaction/websocker-interaction.service';
-import {WebsocketDetectionService} from './services/websocket/detection/websocket-detection.service';
-import {WebsocketReactionService} from './services/websocket/reaction/websocket-reaction.service';
-import {WebsocketMonitoringService} from './services/websocket/monitoring/websocket-monitoring.service';
+import {WebSocketService} from './services/websocket/websocket.service';
+import {WebSocketInteractionService} from './services/websocket/interaction/websocker-interaction.service';
+import {WebSocketDetectionService} from './services/websocket/detection/websocket-detection.service';
+import {WebSocketReactionService} from './services/websocket/reaction/websocket-reaction.service';
+import {WebSocketMonitoringService} from './services/websocket/monitoring/websocket-monitoring.service';
 
 @NgModule({
   declarations: [
@@ -96,11 +96,11 @@ import {WebsocketMonitoringService} from './services/websocket/monitoring/websoc
     RulesService,
     StateService,
     EventService,
-    WebsocketService,
-    WebsocketInteractionService,
-    WebsocketDetectionService,
-    WebsocketReactionService,
-    WebsocketMonitoringService
+    WebSocketService,
+    WebSocketInteractionService,
+    WebSocketDetectionService,
+    WebSocketReactionService,
+    WebSocketMonitoringService
   ],
   bootstrap: [AppComponent],
   exports: [

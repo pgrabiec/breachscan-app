@@ -52,7 +52,7 @@ export class AssignInteractionComponent implements OnInit {
       machineAddress,
       containerId,
       request
-    ).subscribe((response) => {
+    ).subscribe(() => {
       toastService.popToast(ToastType.SUCCESS, 'Assigned interaction rule', interactionRuleId);
     });
   };

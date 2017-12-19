@@ -3,7 +3,7 @@ import {EventService} from '../../../services/events/event-service/event.service
 import {Breachscan} from '../../../model/breachscan-api';
 import {ToastService, ToastType} from '../../../services/misc/toast/toast.service';
 import DetectionEventInfo = Breachscan.DetectionEventInfo;
-import {WebsocketDetectionService} from '../../../services/websocket/detection/websocket-detection.service';
+import {WebSocketDetectionService} from '../../../services/websocket/detection/websocket-detection.service';
 
 @Component({
   selector: 'app-detection-events',
@@ -14,7 +14,7 @@ export class DetectionEventsComponent implements OnInit {
   events: DetectionEventInfo[];
 
   constructor(private eventService: EventService,
-              private websocketDetection: WebsocketDetectionService,
+              private websocketDetection: WebSocketDetectionService,
               private toastService: ToastService) {
   }
 
