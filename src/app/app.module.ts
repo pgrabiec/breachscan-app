@@ -11,7 +11,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ContainerService} from './services/conf/machine/container/container-service/container.service';
 import {ErrorHandlerService} from './services/misc/error-handler/error-handler.service';
 import {MachineConfigurationComponent} from './conf/machines/machine-configuration/machine-configuration.component';
-import {ToasterConfig, ToasterModule} from 'angular2-toaster';
+import {ToasterModule} from 'angular2-toaster';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastService} from './services/misc/toast/toast.service';
 import {ConfAddMachineComponent} from './conf/machines/conf-add-machine/conf-add-machine.component';
@@ -108,7 +108,4 @@ import {WebSocketMonitoringService} from './services/websocket/monitoring/websoc
   ]
 })
 export class AppModule {
-  public toastConfig: ToasterConfig = new ToasterConfig({
-    positionClass: 'toast-top-right'
-  });
 }
