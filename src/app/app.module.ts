@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {MachinesConfigurationComponent} from './conf/machines/machines-configuration/machines.configuration.component';
 import {MachineService} from './services/conf/machine/machine-service/machine.service';
-import {AppRoutingModule} from './/app-routing.module';
+import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './misc/home/home.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ContainerService} from './services/conf/machine/container/container-service/container.service';
